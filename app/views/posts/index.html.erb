@@ -2,11 +2,11 @@
 <% @posts.each do |post|%>
 User: <%= User.find(post.user_id).first_name %>
 <br>
-Location: <%= post.location %>
+Address: <%= post.address %>
 <br>
 Activity: <%= post.activity_type %>
 <br>
-Content: <%= post.content %>
+Description: <%= post.description %>
 <br>
 Duration: <%= post.duration_type %>
 <br>

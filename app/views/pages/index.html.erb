@@ -14,8 +14,7 @@
         <div class="row">
           <div class="col-md-6">
             <span><div class="activities form-group">
-            <%= select_tag "activity", "<option>Coding</option><option>Carpool</option><option>Dinner</option><option>Gym</option><option>Hangout</option><option>Hiking</option><option>Lunch</option><option>Shopping</option><option>Travel</option><option>Swimming</option>".html_safe, class:"form-control" %>
-            <%end%>
+            <%= select_tag "activity", "<option selected disabled>Please select an activity</option><option>Coding</option><option>Carpool</option><option>Dinner</option><option>Gym</option><option>Hangout</option><option>Hiking</option><option>Lunch</option><option>Shopping</option><option>Travel</option><option>Swimming</option>".html_safe, class:"form-control" %>
 <!--                 <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
                   <option value="" selected disabled>Please select activities</option>
                   <option>Coding</option>
@@ -34,7 +33,8 @@
           </div>
           <div class="col-md-6">
             <span><div class="location form-group">
-                    <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
+            <%= select_tag "location", "<option selected disabled>Where would you like to meet?</option><option>Ampang</option><option>Cheras</option><option>Dinner</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
+<!--                     <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
                       <option value="" selected disabled>Where would you want to meet?</option>
                       <option>Ampang</option>
                       <option>Cheras</option>
@@ -45,7 +45,7 @@
                       <option>Petaling Jaya</option>
                       <option>Subang Jaya</option>
                       <option>TTDI</option>
-                    </select>
+                    </select> -->
                   </div>
             </span>
           </div>
@@ -63,7 +63,10 @@
           </div>  <!-- social btns -->
         </div>  <!-- row -->
         <div class="row">
-                      <%= submit_tag "Search!", class: "form-control" %>
+          <div class="col-md-12">
+            <%= submit_tag "Search!", class: "form-control" %>
+            <%end%>
+          </div>
         </div>
       </div> <!-- title container -->
     </div> <!-- social icon -->
