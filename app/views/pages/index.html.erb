@@ -9,7 +9,11 @@
     </div>
   </div>
 <% end %>
-
+<%= form_tag("/search", method:"get") do %>
+<%= text_field_tag "search_location", nil, placeholder:"Where are you going?" %>
+<%= text_field_tag "search_activity", nil, placeholder:"Interested in?" %>
+<%= submit_tag("Search!")%>
+<% end %>
 
 <% post = Post.all %>
 <ul>
