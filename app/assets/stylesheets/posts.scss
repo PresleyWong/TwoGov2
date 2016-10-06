@@ -1,3 +1,59 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+// .container{
+
+// }
+
+.posts-page.col-md-4{
+	height: 500px;
+	width: 30%;
+	float:left;
+	border-color:black; 
+	border-width:4px;
+	border-style: solid;
+}
+
+.posts-page.col-md-8{
+	height: 100%;
+
+	border-color:red; 
+	border-width:4px;
+	border-style: solid;
+ 	display: flex;
+ 	flex-direction: row;
+	justify-content: space-between;
+ 	flex-wrap: wrap;
+ 	align-items: stretch; 
+}
+
+.card.col-md-3{
+	height: 300px;
+	width: 200px;
+	border-style: solid;
+	border-radius: 25px;
+	margin: 20px;
+
+}
+.photo-row{
+	border-color:red; 
+	border-width:4px;
+	border-style: solid;
+	height: 100px;
+}
+
+.description-row{
+	border-color:red; 
+	border-width:4px;
+	border-style: solid;
+	height: 150px;
+}
+
+.button-row{
+	border-color:red; 
+	border-width:4px;
+	border-style: solid;
+	height: 50px;
+}
+
