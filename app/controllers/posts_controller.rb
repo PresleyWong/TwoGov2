@@ -2,6 +2,14 @@ class PostsController < ApplicationController
 	before_filter :authenticate_user!
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+	def index
+		# if current_user
+		# 	@posts = current_user.posts 
+		# else
+		# 	@posts = Post.all
+		# end
+	end
+
 	def new
 		@post = Post.new
 	end
@@ -40,6 +48,11 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def listing
+    @listings = Post.where(user_id: current_user.id)
+
+    render 'listing.html.erb'
+  end
 
 	private
 	def set_post

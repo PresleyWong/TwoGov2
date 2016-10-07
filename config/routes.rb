@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
 
-  resources :posts, only: [:show, :new, :edit, :update, :destroy, :create] 
+  resources :posts
 
-  devise_for :users
+  devise_for :users, controllers: { 
+    sessions: 'users/sessions', 
+    registrations: 'users/registrations'
+  }
+
+  devise_scope :user do
+    get 'users/:id', to:  "users/registrations#show" , :as => "user_registrations"
+    get 'users/edit/:id', to:  "users/registrations#edit" , :as => "edit_user_registrations"
+  end
+
   root to: 'pages#index'
+
+  get '/post/listing', :to => "posts#listing"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

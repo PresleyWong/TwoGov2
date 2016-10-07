@@ -1,0 +1,26 @@
+
+<h2>User Profile</h2>
+
+<ul class="side-navbar">
+
+  <li><%= link_to "Your Listing", post_listing_path %></li>
+  <li><%= link_to "View Profile", user_registrations_path %></li>
+  <li><%= link_to "Edit Profile", edit_user_registrations_path %></li>
+  <li><a href="#contact">Booking</a></li>
+  <li><a href="#about">Partner's Request</a></li>
+
+</ul>
+
+</body>
+
+		<h1>Welcome to Two-go</h1>
+
+		<p>Welcome, <%= current_user.first_name %></p>
+
+		<p>First Name: <%= current_user.first_name%></p>
+		<p>Last Name: <%= current_user.last_name%></p>
+		<p>Gender: <%= current_user.gender%></p>
+		<p>Date of Birth: <%= current_user.date_of_birth%></p>
+		<p>Email: <%= current_user.email%></p>
+
+		<%= link_to "Edit Profile", edit_user_registration_path(current_user), class: "btn btn-warning" %>

@@ -1,0 +1,36 @@
+
+<h2>User Profile</h2>
+
+<ul class="side-navbar">
+
+  <li><%= link_to "Your Listing", post_listing_path %></li>
+  <li><%= link_to "View Profile", user_registrations_path %></li>
+  <li><%= link_to "Edit Profile", edit_user_registrations_path %></li>
+  <li><a href="#contact">Booking</a></li>
+  <li><a href="#about">Partner's Request</a></li>
+
+</ul>
+
+<div class="container">
+	<h1>Your listings:</h1>
+		<table>
+			<tr>
+				<th>Activity</th>
+				<th>Description</th>
+				<th>Location</th>
+				<th>Language</th>
+				<th>Duration</th>
+			</tr>
+
+			<% @listings.each do |listing| %>
+				<tr>
+					<td><%= listing.activity_type %></td>
+					<td><%= listing.description[0..80] + "..." %></td>
+					<td><%= listing.address %></td>
+					<td><%= listing.language_type%></td>
+					<td><%= listing.duration_type %></td>
+				</tr>
+				<% end %>
+		</table>
+
+</div>
