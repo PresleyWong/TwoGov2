@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161007090948) do
     t.integer  "status"
     t.integer  "user_id"
     t.integer  "invitee_id"
+    t.integer  "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

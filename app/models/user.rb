@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable
 
-  has_many :posts,		:dependent => :destroy
-  has_many :invitations,    :dependent => :destroy
+  has_many :posts,		:dependent => :destroy 
+  has_many :invitations,    :dependent => :destroy, through: :posts
 end
