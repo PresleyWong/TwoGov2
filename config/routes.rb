@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :posts
+  resources :invitations
 
   devise_for :users
   root to: 'pages#index'
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
   # root to: 'pages#index'
 
   get '/post/listing', :to => "posts#listing"
-  get 'users/:id', to:  "registrations#show" , :as => "user_registrations"
+  #get 'users/:id', to:  "registrations#show" , :as => "user_registrations"
   #**************
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

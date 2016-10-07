@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
 
   has_many :posts,		:dependent => :destroy
+  has_many :invitations,    :dependent => :destroy
 end
