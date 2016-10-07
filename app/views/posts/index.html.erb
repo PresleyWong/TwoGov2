@@ -45,7 +45,7 @@
 								<%= post.user.last_name + " " + post.user.first_name%></br>
 							</div>
 							<div class="button-row">
-								<a href="/invitations"><button type="button" class="btn btn-danger">Request</button></a>
+								<%= button_to "Request", invitations_path(post_id: post.id)%>
 							</div>
 						</div> <!--  card col-md-4 -->
 					<%end%>
