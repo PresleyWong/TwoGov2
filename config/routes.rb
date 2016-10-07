@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   resources :posts
 
   devise_for :users, controllers: { 
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
     get 'users/:id', to:  "users/registrations#show" , :as => "user_registrations"
     get 'users/edit/:id', to:  "users/registrations#edit" , :as => "edit_user_registrations"
   end
+
+  # Search Bar
+  get "search" => "pages#search"
+  devise_for :users
 
   root to: 'pages#index'
 
