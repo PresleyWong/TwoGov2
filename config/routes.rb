@@ -1,9 +1,29 @@
 Rails.application.routes.draw do
 
-  resources :posts, only: [:show, :new, :edit, :update, :destroy, :create] 
+  resources :posts
 
   devise_for :users
   root to: 'pages#index'
+
+ # sylvia
+#No route matches {:action=>"show", :controller=>"users/registrations"} missing required keys: [:id]
+#<li><%= link_to "View Profile", user_registrations_path %></li>
+#**************
+  # devise_for :users, controllers: { 
+  # #   sessions: 'users/sessions', 
+  #    registrations: 'users/registrations'
+  # }
+
+  # devise_scope :user do
+  #   get 'users/:id', to:  "users/registrations#show" , :as => "user_registrations"
+  #   get 'users/edit/:id', to:  "users/registrations#edit" , :as => "edit_user_registrations"
+  # end
+
+  # root to: 'pages#index'
+
+  get '/post/listing', :to => "posts#listing"
+  get 'users/:id', to:  "registrations#show" , :as => "user_registrations"
+  #**************
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
