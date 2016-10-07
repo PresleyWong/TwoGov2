@@ -40,6 +40,12 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def listing
+	    @listings = Post.where(user_id: current_user.id)
+
+	    render 'listing.html.erb'
+  	end
+
 
 	private
 	def set_post

@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="posts-page col-md-4">
+			<h3>Filtering:</h3></br>
+		</div>
+
+		<div class="posts-page col-md-8">
+			<div class="container">
+				<div class="row">
+					<%Post.all.each do |post|%>
+						<div class="card col-md-3">
+							<div class="photo-row">
+							</div>
+							<div class="description-row">
+								<%= post.description%></br>
+								<%= post.address%></br>
+								<%= post.activity_type%></br>
+								Speaks <%= post.language_type%></br>
+								<%= post.user.last_name + " " + post.user.first_name%></br>
+							</div>
+							<div class="button-row">
+								<button type="button" class="btn btn-danger">Request</button>
+							</div>
+						</div> <!--  card col-md-4 -->
+					<%end%>
+				</div>   <!-- row -->
+			</div>  <!-- container -->
+		</div>  <!-- posts-page col md-8 -->
+	</div>  <!-- row -->
+</div> <!-- container -->
