@@ -15,15 +15,16 @@
         </div>
     </div>
     <div class="row">
-		<div class="col-md-5">
-            <span>
-	            <div class="location form-group">
-            		<%= check_box_tag 'activity', 'Shopping' %>
-            		<%= check_box_tag 'activity', 'Shopping' %>
-	            	<%= label_tag 'activity', 'Shopping' %>
-	            </div>
-            </span>
-        </div>
+        <% @activities.each do |activity|%>
+	        <div class="location form-group">
+	        	<div class="col-md-12">
+            		<span>
+		           		<%= check_box_tag 'activity', activity.name %>
+		            	<%= label_tag 'activity', activity.name %>
+	            	</span>
+	            </div>	
+        	</div>
+        	<% end %>
     </div>
     <div class="row">
     	<div class="col-md-2">
