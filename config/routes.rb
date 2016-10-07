@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # Search Bar
+  get "search" => "pages#search"
   resources :posts
   resources :invitations
 

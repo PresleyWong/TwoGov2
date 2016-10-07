@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+	include PgSearch
 	belongs_to :user
 
 	geocoded_by :address
@@ -7,4 +8,6 @@ class Post < ActiveRecord::Base
 
 
     validates :activity_type, :language_type, :duration_type, :description, :address, presence: true
+
+	pg_search_scope :search_by_columns, :against => [:activity_type, :address]
 end
