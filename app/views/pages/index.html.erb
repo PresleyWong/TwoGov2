@@ -9,3 +9,16 @@
     </div>
   </div>
 <% end %>
+
+
+<% post = Post.all %>
+<ul>
+	<% post.each do |x| %>
+
+
+		<li><%= link_to "#{x.activity_type}", post_path(x) %></li>
+
+
+	<% end %>
+</ul>
+

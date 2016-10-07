@@ -36,6 +36,10 @@ gem 'omniauth-google-oauth2'
 gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 
+
+#For API
+gem 'geocoder'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
