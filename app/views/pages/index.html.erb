@@ -1,24 +1,77 @@
-<% content_for :top_content do %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Welcome!</h1>
-      <p>Register to get started.</p>
-      <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
-    </div>
-  </div>
-<% end %>
+<div class="video_container">
+  <video autoplay loop="loop" preload="auto" class="photo">
+    <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Ground-Zero.mp4" type='video/mp4'>
+    <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed.webm" type='video/webm'>
+  </video>
+  <div class="layer">
+      <div class="title-container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1><span>LOOKING FOR A BUDDY</span></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <span><div class="activities form-group">
+                <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
+                  <option value="" selected disabled>Please select activities</option>
+                  <option>Coding</option>
+                  <option>Carpool</option>
+                  <option>Dinner</option>
+                  <option>Gym</option>
+                  <option>Hangout</option>
+                  <option>Hiking</option>
+                  <option>Lunch</option>
+                  <option>Shopping</option>
+                  <option>Travel</option>
+                  <option>Swimming</option>
+                </select>
+              </div>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <span><div class="location form-group">
+                    <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
+                      <option value="" selected disabled>Where would you want to meet?</option>
+                      <option>Ampang</option>
+                      <option>Cheras</option>
+                      <option>Dinner</option>
+                      <option>Gym</option>
+                      <option>Kuala Lumpur</option>
+                      <option>KLCC</option>
+                      <option>Petaling Jaya</option>
+                      <option>Subang Jaya</option>
+                      <option>TTDI</option>
+                    </select>
+                  </div>
+            </span>
+          </div>
+
+          <div align="center" class="socialbtns">
+            <ul>
+              <li><a href="#" class="fa fa-lg fa-facebook"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-twitter"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-google-plus"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-github"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-pinterest"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-linkedin"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-instagram"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-youtube"></a></li></br>
+            </ul></br>
+          </div>  <!-- social btns -->
+        </div>  <!-- row -->
+      </div> <!-- title container -->
+    </div> <!-- social icon -->
+  </div> <!-- layer -->
+</div> <!-- video container -->
 
 
-<% post = Post.all %>
-<ul>
-	<% post.each do |x| %>
+
+<div class="header container-fluid">
+  <h1>a platform for people to find a hobby partner</h1>
+  <p>Find me in app/views/home/index.html.erb</p>
+</div>
 
 
-		<li><%= link_to "#{x.activity_type}", post_path(x) %></li>
 
-
-	<% end %>
-</ul>
 
