@@ -1,0 +1,15 @@
+<br>
+<% @posts.each do |post|%>
+User: <%= User.find(post.user_id).first_name %>
+<br>
+Location: <%= post.location %>
+<br>
+Activity: <%= post.activity_type %>
+<br>
+Content: <%= post.content %>
+<br>
+Duration: <%= post.duration_type %>
+<br>
+<br>
+<br>
+<% end %>

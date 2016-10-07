@@ -40,6 +40,9 @@ gem 'bootstrap-sass'
 #For API
 gem 'geocoder'
 
+# For Search
+gem 'pg_search'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

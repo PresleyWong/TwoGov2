@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :posts, only: [:show, :new, :edit, :update, :destroy, :create] 
-
+  # Search Bar
+  get "search" => "pages#search"
   devise_for :users
   root to: 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
