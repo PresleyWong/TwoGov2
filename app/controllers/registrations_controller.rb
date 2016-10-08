@@ -24,6 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def needs_password?
-    @user.email != params[:user][:email] || params[:user][:password].present?
+    # @user.email != params[:user][:email] || params[:user][:password].present?
+    false
   end
 end

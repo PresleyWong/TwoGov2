@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
          :validatable, :confirmable, :lockable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+         
+
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
 
