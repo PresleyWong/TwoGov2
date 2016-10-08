@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get "search" => "pages#search"
   resources :posts
   resources :invitations
-
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   root to: 'pages#index'
+
+
+  resources :users, only: [:show]  #important to place this after devise_for :users!
 
  # sylvia
 #No route matches {:action=>"show", :controller=>"users/registrations"} missing required keys: [:id]

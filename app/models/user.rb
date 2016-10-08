@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
 
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
+
+
 end
