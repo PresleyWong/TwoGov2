@@ -207,7 +207,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
-  omniauth
   omniauth-facebook
   omniauth-google-oauth2
   pg (~> 0.15)

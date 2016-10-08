@@ -37,7 +37,6 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
-		byebug
 		Post.destroy(@post.id)
 		flash[:notice] = "Post is deleted."
 		redirect_to root_path

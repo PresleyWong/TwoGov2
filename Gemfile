@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #For login
 gem 'devise', '3.4.1'
 gem "figaro"
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 

@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   resources :posts
   resources :invitations
   #devise_for :users
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => { :registrations => "registrations",
+                                       :omniauth_callbacks => "users/omniauth_callbacks" }
   root to: 'pages#index'
 
+  resources :users, only: [:show]  #important! place this after devise_for :users!
 
-  resources :users, only: [:show]  #important to place this after devise_for :users!
+
 
  # sylvia
 #No route matches {:action=>"show", :controller=>"users/registrations"} missing required keys: [:id]
