@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  mount_uploader :avatar, AvatarUploader
+
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :gender, presence: true
@@ -12,10 +15,10 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
          
-
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
 
+  
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -36,6 +36,10 @@ gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 
 
+#For image upload
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem "mini_magick"
+
 #For API
 gem 'geocoder'
 
