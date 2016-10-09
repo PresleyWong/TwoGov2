@@ -1,20 +1,67 @@
 ul.side-navbar {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
+    padding: 0px;
+    width: 40px;
+    background-color: darken(SALMON, 5%);
 }
 
-li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
+.side-navbar {
+  position: fixed;
+  background-color: TOMATO;
+  top:30%;
 }
 
-/* Change the link color on hover */
-li a:hover {
-    background-color: #555;
-    color: white;
+//
+.side-navbar li {
+  display: inline-block;
+  text-align: center;
+  width: 140px;
+  height: 50px;
+  padding-left: 0;
+  margin: 0;
+  font-family: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: WHITE;
+  letter-spacing: 2px;
+  background-color: darken(PEACHPUFF, 2%);
+}
+
+.side-navbar a {
+  text-decoration: none;
+  color: WHITE;
+  display: inline-block;
+  width: 140px;
+  height: 35px;
+  padding-top: 15px;
+}
+
+.side-navbar li:hover {
+  background-color: darken(PEACHPUFF, 8%);
+  text-transform: none;
+}
+
+.side-navbar .active {
+  background-color: SALMON;
+}
+
+.side-navbar .active:hover {
+  background-color: darken(SALMON, 5%);
+}
+//
+
+.profile-container h1  {
+  font-family: 'Raleway', Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+
+.edit_user {
+    text-align: left;
+    margin-left: 330px;
+    input{
+        width:220px;
+        margin-bottom: 20px;
+        padding: 5px;
+    }
 }
