@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 	def search
+    byebug
   	# place in postings controller?s
   	if !params[:activity].nil?
   		activities = params[:activity].keys.join(" ")
