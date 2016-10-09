@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 	end
 	def index
 		@posts = Post.all
-		@activities = Activity.all
+		@activities_bar = Activity.all
 	end
 
 	def create

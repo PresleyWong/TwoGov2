@@ -8,64 +8,117 @@
 		</div>
 		<div class="col-md-5">
             <span>
-            	<div class="activities form-group">
+            	<div class="location form-group">
 	            	<%= select_tag "location", "<option selected disabled>Location</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
               	</div>
             </span>
         </div>
     </div>
     <div class="row">
-        <% @activities.each do |activity|%>
-	        <div class="location form-group">
-	        	<div class="col-md-12">
+        <% @activities_bar.each do |activity|%>
+	        <div class="acitivities form-group">
+	        	<div class="col-md-4">
+	        	</div>
+	        	<div class="col-md-8">
             		<span>
-		           		<%= check_box_tag 'activity', activity.name %>
-		            	<%= label_tag 'activity', activity.name %>
+            			<div class="box_label">
+		           		<%= check_box_tag "activity" + "[" + activity.name + "]", activity.name %>
+		            	<%= label_tag "activity" + "[" + activity.name + "]", activity.name %>
+		            	</div>
 	            	</span>
 	            </div>	
         	</div>
         	<% end %>
     </div>
     <div class="row">
+    	<div class="col-md-3">
+    	
+    	</div>
+    	<div class="col-md-4">
+    		Age:<%= number_field_tag 'age', nil, min: 1, max: 100%>
+    	</div>
+    </div>    
+    <div class="row">
     	<div class="col-md-2">
     	</div>
-    	<div class="col-md-5">
-    		age
+    	<div class="col-md-8">
+    		Number of persons:<%= number_field_tag 'person', nil, min: 1, max: 4%>
     	</div>
     </div>    
     <div class="row">
     	<div class="col-md-2">
     	</div>
     	<div class="col-md-5">
-    		no .of guest
+    		<%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe %>
     	</div>
-    </div>    
+    </div>
     <div class="row">
-    	<div class="col-md-2">
-    	</div>
-    	<div class="col-md-5">
-    		gender
-    	</div>
+    Language:
     </div>
     <div class="row">
     	<div class="col-md-2">
     	</div>
-    	<div class="col-md-5">
-    		language	
+    	<div class="col-md-10">
+	   		<%= check_box_tag "language[english]", "english" %>
+	    	<%= label_tag "language_english", "English" %>
+	   		<%= check_box_tag "language[malay]", "malay" %>
+	    	<%= label_tag "language_malay", "Malay" %>
     	</div>
     </div>
     <div class="row">
-    	<div class="col-md-2">
+        <div class="col-md-2">
     	</div>
-    	<div class="col-md-5">
-    		duration
+    	<div class="col-md-10">
+    		<%= check_box_tag "language[mandarin]", "mandarin" %>
+	    	<%= label_tag "language_mandarin", "Mandarin" %>
+	   		<%= check_box_tag "language[tamil]", "tamil" %>
+	    	<%= label_tag "language_tamil", "Tamil" %>
     	</div>
     </div>
     <div class="row">
-    	<div class="col-md-2">
+    Duration:
+    </div>
+    <div class="row">
+        <div class="col-md-2">
     	</div>
-    	<div class="col-md-5">
-    		time
+    	<div class="col-md-10">
+    		<%= check_box_tag "duration[12]", "1 2" %>
+	    	<%= label_tag "duration_12", "1-2 hours" %>
+	   		<%= check_box_tag "duration[34]", "3 4" %>
+	    	<%= label_tag "duration_34", "3-4 hours" %>
+    	</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+    	</div>
+    	<div class="col-md-10">
+    		<%= check_box_tag "duration[56]", "5 6" %>
+	    	<%= label_tag "duration_56", "5-6 hours" %>
+	   		<%= check_box_tag "duration[10]", "10+" %>
+	    	<%= label_tag "duration_10", "10+ hours" %>
+    	</div>
+    </div>
+    <div class="row">
+    Time Of Day:
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+    	</div>
+    	<div class="col-md-10">
+    		<%= check_box_tag "time[morning]", "morning" %>
+	    	<%= label_tag "time_morning", "Morning" %>
+	   		<%= check_box_tag "time[afternoon]", "afternoon" %>
+	    	<%= label_tag "time_afternoon", "Afternoon" %>
+    	</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+    	</div>
+    	<div class="col-md-10">
+    		<%= check_box_tag "time[evening]", "evening" %>
+	    	<%= label_tag "time_evening", "Evening" %>
+	   		<%= check_box_tag "time[night]", "night" %>
+	    	<%= label_tag "time_night", "Night" %>
     	</div>
     </div>
     <div class="row">
