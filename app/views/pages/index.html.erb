@@ -14,7 +14,11 @@
           <div class="row">
             <div class="col-md-6">
               <span><div class="activities form-group">
-              <%= select_tag "activity", "<option selected disabled>Please select an activity</option><option>Baking</option><option>Coding</option><option>Dinner</option><option>Gym</option><option>Hangout</option><option>Hiking</option><option>Lunch</option><option>Photography</option><option>Shopping</option><option>Travel</option><option>Swimming</option>".html_safe, class:"form-control" %>
+              <% string = "<option selected disabled>Please select an activity</option>" %>
+              <% Activity.all.each do |activity|%>
+              <% string += "<option>#{activity.name}</option>" %>
+              <% end %>
+              <%= select_tag "activity[activity]", string.html_safe, class:"form-control" %>
                 </div>
               </span>
             </div>

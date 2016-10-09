@@ -2,13 +2,13 @@ class PagesController < ApplicationController
 	def search
   	# place in postings controller?s
   	if !params[:activity].nil?
-  		activities = params[:activity].keys.join(" ")
+  		activities = params[:activity].values.join(" ")
   	end
   	if !params[:language].nil?
-  		languages = params[:language].keys.join(" ")
+  		languages = params[:language].values.join(" ")
   	end
   	if !params[:duration].nil?
-  		durations = params[:duration].keys.join(" ")
+  		durations = params[:duration].values.join(" ")
   	end
   		# times
   		# genders
