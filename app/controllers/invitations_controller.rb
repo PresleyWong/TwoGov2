@@ -1,4 +1,5 @@
 class InvitationsController < ApplicationController
+	# include UsersHelper
 	def index
 		@posts = Post.where(user_id: current_user.id)
 		@invitations = Invitation.where("user_id = #{current_user.id} or invitee_id=#{current_user.id}")
@@ -14,9 +15,12 @@ class InvitationsController < ApplicationController
     	@invitation.user_id = current_user.id
     	@invitation.status = 0 
     	@invitation.invitee_id = @post.user.id
-
+    	
     	if @invitation.save
-    		flash[:success] = "Invitation sent!"
+    		@poster = User.find(@post.user.id)
+    		@guest = current_user
+    		RequestMailer.request_email(@poster, @guest, @post).deliver_later
+			flash[:success] = "Invitation sent!"
     		redirect_to posts_path
     	else
     		flash[:alert] = "Error creating request"
@@ -43,7 +47,6 @@ class InvitationsController < ApplicationController
 	  		flash[:alert] = "You have confirmed!"
 	  		redirect_to invitations_path
 	  	end
-
 	end
 
 

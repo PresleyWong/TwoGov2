@@ -16,10 +16,6 @@
  *= bootstrap-sprockets
  *= bootstrap
  *= bootstrap/theme
+
+ *= require toastr
  */
-
-@media only screen and (max-width: 320px) {
-
-   body { font-size: 2em; }
-
-}

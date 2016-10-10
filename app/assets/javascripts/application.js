@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require bootstrap/dropdown
 //= require_tree .
+//= require toastr
 // $(document).ready(function(){
 //   $('#confirm_form').on('submit', function(event){
 // 	  event.preventDefault();
@@ -34,3 +35,5 @@
        
 //   });
 // });
+
+
