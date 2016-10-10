@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	def search
-    # byebug
+    byebug
   		# times
   		# genders
       # age
