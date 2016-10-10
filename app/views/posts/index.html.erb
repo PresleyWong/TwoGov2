@@ -13,23 +13,25 @@
         </div> <!-- row -->
         <div class="row" style="display: flex, align-items: center;">
           <% @activities_bar.each do |activity|%>
-            <div class="acitivities form-group">
-            	<div class="col-md-12">
+              <div class="col-md-1">
+              </div>
+            	<div class="col-md-5">
             		<span>
             			<div class="box_label">
-               		<%= check_box_tag "activity" + "[" + activity.name + "]", activity.name %>
-                	<%= label_tag "activity" + "[" + activity.name + "]", activity.name %>
+               		<%= check_box_tag "activity[]", activity.name, false, :multiple => true, id: activity.name %>
+                	<%= label_tag activity.name, activity.name %>
                 	</div>
               	</span>
               </div>	 <!-- col-md-12 -->
-          	</div> <!-- acitivities form-group -->
           <% end %>
         </div> <!-- row -->
         <div class="row">
-        	<div class="col-md-6">
+        	<div class="col-md-12">
         		Age:<%= number_field_tag 'age', nil, min: 1, max: 100%>
         	</div>
-          <div class="col-md-6">
+        </div>
+        <div class="row">
+          <div class="col-md-12">
             Gender: <%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe %>
           </div>
         </div>    
@@ -39,16 +41,16 @@
         <div class="row">
           <div class="col-md-12">
             <div class="col-md-6">
-      	   		<%= check_box_tag "language[english]", "english" %>
-      	    	<%= label_tag "language_english", "English" %></br>
-      	   		<%= check_box_tag "language[malay]", "malay" %>
-      	    	<%= label_tag "language_malay", "Malay" %>
+      	   		<%= check_box_tag "language[]", "english", false, :multiple => true, id:"english" %>
+      	    	<%= label_tag "english", "English" %></br>
+      	   		<%= check_box_tag "language[]", "malay",false, :multiple => true, id:"malay" %>
+      	    	<%= label_tag "malay", "Malay" %>
             </div>
           	<div class="col-md-6">
-          		<%= check_box_tag "language[mandarin]", "mandarin" %>
-      	    	<%= label_tag "language_mandarin", "Mandarin" %></br>
-      	   		<%= check_box_tag "language[tamil]", "tamil" %>
-      	    	<%= label_tag "language_tamil", "Tamil" %>
+          		<%= check_box_tag "language[]", "mandarin", false, :multiple => true, id:"mandarin" %>
+      	    	<%= label_tag "mandarin", "Mandarin" %></br>
+      	   		<%= check_box_tag "language[]", "tamil", false, :multiple => true, id:"tamil"%>
+      	    	<%= label_tag "tamil", "Tamil" %>
           	</div>
           </div>
         </div>
@@ -59,16 +61,16 @@
         <div class="row">
           <div class="col-md-12">
             <div class="col-md-6">
-              <%= check_box_tag "duration[morning]", "morning" %>
-              <%= label_tag "duration_morning", "Morning" %></br>
-              <%= check_box_tag "duration[afternoon]", "afternoon" %>
-              <%= label_tag "duration_afternoon", "Afternoon" %>
+              <%= check_box_tag "time[]", "morning", false, :multiple => true, id:"morning" %>
+              <%= label_tag "morning", "Morning" %></br>
+              <%= check_box_tag "time[]", "afternoon", false, :multiple => true, id:"afternoon" %>
+              <%= label_tag "afternoon", "Afternoon" %>
             </div>
             <div class="col-md-6">
-              <%= check_box_tag "duration[evening]", "evening" %>
-              <%= label_tag "duration_evening", "Evening" %></br>
-              <%= check_box_tag "duration[night]", "night" %>
-              <%= label_tag "duration_night", "Night" %>
+              <%= check_box_tag "time[]", "evening", false, :multiple => true, id:"evening" %>
+              <%= label_tag "evening", "Evening" %></br>
+              <%= check_box_tag "time[]", "night", false, :multiple => true, id:"night" %>
+              <%= label_tag "night", "Night" %>
             </div>
           </div>
         </div>

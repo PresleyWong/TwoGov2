@@ -1,19 +1,15 @@
 class PagesController < ApplicationController
 	def search
-  	if !params[:activity].nil?
-  		activities = params[:activity].values.join(" ")
-  	end
-  	if !params[:language].nil?
-  		languages = params[:language].values.join(" ")
-  	end
-  	if !params[:duration].nil?
-  		durations = params[:duration].values.join(" ")
-  	end
-  		# times
-  		# genders
-      # age
-  		# persons
-	    search = "#{params[:location]} #{activities} #{languages} #{durations}"
+    if !params[:activity].nil?
+      activities = params[:activity].join(" ")
+    end
+    if !params[:language].nil?
+      languages = params[:language].join(" ")
+    end
+    if !params[:time].nil?
+      times = params[:time].join(" ")
+    end
+	    search = "#{params[:location]} #{activities} #{languages} #{times}"
       if search == "   "
        @posts = Post.all
       else
