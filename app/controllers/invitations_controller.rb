@@ -1,7 +1,9 @@
 class InvitationsController < ApplicationController
 	# include UsersHelper
 	def index
-	end
+		@posts = Post.where(user_id: current_user.id)
+		@invitations = Invitation.where("user_id = #{current_user.id} or invitee_id=#{current_user.id}")
+	end 
 
 	def new
 	end
@@ -21,11 +23,12 @@ class InvitationsController < ApplicationController
     		redirect_to posts_path
     	else
     		flash[:alert] = "Error creating request"
-    		render "/posts/index"
+    		redirect_to posts_path
     	end
 	end
 
 	def show
+
 	end
 
 	def destroy

@@ -47,7 +47,9 @@ gem 'geocoder'
 gem 'pg_search'
 
 
-gem 'sidekiq'
+
+gem 'sidekiq'	
+gem 'toastr-rails'
 
 
 # Use ActiveModel has_secure_password

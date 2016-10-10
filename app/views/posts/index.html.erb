@@ -1,141 +1,93 @@
 <div class="container">
 	<div class="row">
-		<div class="posts-page col-md-4 filter-box">
+    <div class="posts-page col-md-4 filter-box">
 			<h3>Filtering:</h3></br>
 			<%= form_tag("/search", method:"get") do %>
-	<div class="row">
-		<div class="col-md-2">
-		</div>
-		<div class="col-md-5">
-            <span>
-            	<div class="location form-group">
-	            	<%= select_tag "location", "<option selected disabled>Location</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
-              	</div>
-            </span>
-        </div>
-    </div>
-    <div class="row">
-        <% @activities_bar.each do |activity|%>
-	        <div class="acitivities form-group">
-	        	<div class="col-md-4">
-	        	</div>
-	        	<div class="col-md-8">
+      	<div class="row">
+      		<div class="col-md-3">
+          Location:
+          </div>
+        	<div class="location form-group col-md-9">
+          	<%= select_tag "location", "<option selected disabled>Location</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
+          </div> 
+        </div> <!-- row -->
+        <div class="row" style="display: flex, align-items: center;">
+          <% @activities_bar.each do |activity|%>
+            <div class="acitivities form-group">
+            	<div class="col-md-12">
             		<span>
             			<div class="box_label">
-		           		<%= check_box_tag "activity" + "[" + activity.name + "]", activity.name %>
-		            	<%= label_tag "activity" + "[" + activity.name + "]", activity.name %>
-		            	</div>
-	            	</span>
-	            </div>	
+               		<%= check_box_tag "activity" + "[" + activity.name + "]", activity.name %>
+                	<%= label_tag "activity" + "[" + activity.name + "]", activity.name %>
+                	</div>
+              	</span>
+              </div>	 <!-- col-md-12 -->
+          	</div> <!-- acitivities form-group -->
+          <% end %>
+        </div> <!-- row -->
+        <div class="row">
+        	<div class="col-md-6">
+        		Age:<%= number_field_tag 'age', nil, min: 1, max: 100%>
         	</div>
-        	<% end %>
-    </div>
-    <div class="row">
-    	<div class="col-md-3">
-    	
-    	</div>
-    	<div class="col-md-4">
-    		Age:<%= number_field_tag 'age', nil, min: 1, max: 100%>
-    	</div>
-    </div>    
-    <div class="row">
-    	<div class="col-md-2">
-    	</div>
-    	<div class="col-md-8">
-    		Number of persons:<%= number_field_tag 'person', nil, min: 1, max: 4%>
-    	</div>
-    </div>    
-    <div class="row">
-    	<div class="col-md-2">
-    	</div>
-    	<div class="col-md-5">
-    		<%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe %>
-    	</div>
-    </div>
-    <div class="row">
-    Language:
-    </div>
-    <div class="row">
-    	<div class="col-md-2">
-    	</div>
-    	<div class="col-md-10">
-	   		<%= check_box_tag "language[english]", "english" %>
-	    	<%= label_tag "language_english", "English" %>
-	   		<%= check_box_tag "language[malay]", "malay" %>
-	    	<%= label_tag "language_malay", "Malay" %>
-    	</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-    	</div>
-    	<div class="col-md-10">
-    		<%= check_box_tag "language[mandarin]", "mandarin" %>
-	    	<%= label_tag "language_mandarin", "Mandarin" %>
-	   		<%= check_box_tag "language[tamil]", "tamil" %>
-	    	<%= label_tag "language_tamil", "Tamil" %>
-    	</div>
-    </div>
-    <div class="row">
-    Duration:
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-    	</div>
-    	<div class="col-md-10">
-    		<%= check_box_tag "duration[12]", "1 2" %>
-	    	<%= label_tag "duration_12", "1-2 hours" %>
-	   		<%= check_box_tag "duration[34]", "3 4" %>
-	    	<%= label_tag "duration_34", "3-4 hours" %>
-    	</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-    	</div>
-    	<div class="col-md-10">
-    		<%= check_box_tag "duration[56]", "5 6" %>
-	    	<%= label_tag "duration_56", "5-6 hours" %>
-	   		<%= check_box_tag "duration[10]", "10+" %>
-	    	<%= label_tag "duration_10", "10+ hours" %>
-    	</div>
-    </div>
-    <div class="row">
-    Time Of Day:
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-    	</div>
-    	<div class="col-md-10">
-    		<%= check_box_tag "time[morning]", "morning" %>
-	    	<%= label_tag "time_morning", "Morning" %>
-	   		<%= check_box_tag "time[afternoon]", "afternoon" %>
-	    	<%= label_tag "time_afternoon", "Afternoon" %>
-    	</div>
-    </div>
-    <div class="row">
-        <div class="col-md-2">
-    	</div>
-    	<div class="col-md-10">
-    		<%= check_box_tag "time[evening]", "evening" %>
-	    	<%= label_tag "time_evening", "Evening" %>
-	   		<%= check_box_tag "time[night]", "night" %>
-	    	<%= label_tag "time_night", "Night" %>
-    	</div>
-    </div>
-    <div class="row">
-    	<div class="col-md-2">
-    	</div>
-        <div class="col-md-5">
-            <%= submit_tag "Search!", class: "form-control" %>
-            <%end%>
+          <div class="col-md-6">
+            Gender: <%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe %>
+          </div>
+        </div>    
+        <div class="row">
+        	Language:
         </div>
-    </div>
-		</div>
-		<div class="posts-page col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+      	   		<%= check_box_tag "language[english]", "english" %>
+      	    	<%= label_tag "language_english", "English" %></br>
+      	   		<%= check_box_tag "language[malay]", "malay" %>
+      	    	<%= label_tag "language_malay", "Malay" %>
+            </div>
+          	<div class="col-md-6">
+          		<%= check_box_tag "language[mandarin]", "mandarin" %>
+      	    	<%= label_tag "language_mandarin", "Mandarin" %></br>
+      	   		<%= check_box_tag "language[tamil]", "tamil" %>
+      	    	<%= label_tag "language_tamil", "Tamil" %>
+          	</div>
+          </div>
+        </div>
+
+        <div class="row">
+          Time Of Day:
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <%= check_box_tag "duration[morning]", "morning" %>
+              <%= label_tag "duration_morning", "Morning" %></br>
+              <%= check_box_tag "duration[afternoon]", "afternoon" %>
+              <%= label_tag "duration_afternoon", "Afternoon" %>
+            </div>
+            <div class="col-md-6">
+              <%= check_box_tag "duration[evening]", "evening" %>
+              <%= label_tag "duration_evening", "Evening" %></br>
+              <%= check_box_tag "duration[night]", "night" %>
+              <%= label_tag "duration_night", "Night" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-6"><%= button_to "Reset", posts_path %></div>
+          <div class="col-md-6">
+            <%= submit_tag "Search!", class: "form-control" %>
+          </div>
+        </div>
+      <%end%>
+    </div>  <!-- posts-page col-md-4 filter-box -->
+  		
+  	<div class="posts-page col-md-8">
 			<div class="container">
 				<div class="row">
 					<% @posts.each do |post|%>
 						<div class="card col-md-3">
 							<div class="photo-row">
+                <%= image_tag(post.user.avatar.thumb.url)%>
 							</div>
 							<div class="description-row">
 								<%= post.description%></br>
@@ -157,12 +109,12 @@
 								</div>
 							</div> <!-- button-row -->
 						</div> <!--  card col-md-3 -->
-					<%end%>
-				</div>   <!-- row -->
-			</div>  <!-- container -->
-		</div>  <!-- posts-page col md-8 -->
+          <%end%>
+				</div>  <!-- row -->
+			</div>   <!-- container -->
+    </div>  <!-- posts-page col md-8 -->
 	</div>  <!-- row -->
-</div> <!-- container -->
+</div> <!-- container --> -->
 
 
 

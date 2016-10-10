@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
   	after_validation :geocode, if: :address_changed?
 
 
-    validates :activity_type, :language_type, :duration_type, :description, :address, presence: true
+    validates :activity_type, :language_type, :description, :address, presence: true
 
 	pg_search_scope :search_by_columns, :against => [:activity_type, :address, :language_type, :duration_type]
 end
