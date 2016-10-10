@@ -18,7 +18,7 @@
               <% Activity.all.each do |activity|%>
               <% string += "<option>#{activity.name}</option>" %>
               <% end %>
-              <%= select_tag "activity[activity]", string.html_safe, class:"form-control" %>
+              <%= select_tag "activity[]", string.html_safe, class:"form-control" %>
                 </div>
               </span>
             </div>
