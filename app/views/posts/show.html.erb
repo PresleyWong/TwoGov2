@@ -1,4 +1,23 @@
-<h1>Post#show</h1>
+<h1><%= @post.title %></h1>
+
+
+
+<div>
+	<p>Activity type: <%= @post.activity_type %> </p>
+	<p>Language used: <%= @post.language_type %> </p>
+	<p>Preferred session: <%= @post.duration_type %> </p>
+	<p>Description: <%= @post.description %> </p>
+	<p>Location: <%= @post.address %> </p>
+</div>
+
+
+<div>
+	<% if(current_user.id == @post.user_id) %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %> 
+	<% end %>
+</div>
+
 
 <!-- Google Map -->					
 <div class="row">
@@ -35,22 +54,4 @@
 	    </script>
 
 	</div>
-</div>
-
-
-<div>
-	<p>Activity type: <%= @post.activity_type %> </p>
-	<p>Language used: <%= @post.language_type %> </p>
-	<p>Expire duration: <%= @post.duration_type %> </p>
-	<p>Description: <%= @post.description %> </p>
-	<p>Location: <%= @post.address %> </p>
-	<p>Search Tag#:	<%= @post.search_tag %> </p>
-</div>
-
-
-<div>
-	<% if(current_user.id == @post.user_id) %>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-	<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %> 
-	<% end %>
 </div>

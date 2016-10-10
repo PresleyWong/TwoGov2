@@ -51,6 +51,7 @@ ul.side-navbar {
 //
 .profile-container {
   margin-left: 200px;
+  margin-right: 50px;
   text-align: left;
 }
 .profile-container h1  {
@@ -67,5 +68,26 @@ ul.side-navbar {
         width:220px;
         margin-bottom: 20px;
         padding: 5px;
+    }
+}
+
+.create-new-post.container{
+  text-align: left;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 100px;
+  white-space: normal;
+    input{
+      width:50%;
+      font-size: 12px;
+    }
+    textarea{
+    width: 600px;
+      #description-box{
+        height: 100px;
+      }
+    }
+    .actions input{
+      width:600px;
     }
 }
