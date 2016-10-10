@@ -6,15 +6,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  	<!-- font for picturebox -->
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Raleway:400,800)">
-
-     <link rel="stylesheet" type="text/css"
-          href="http://fonts.googleapis.com/css?family=Share:400,700)">
-          
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- geocoder -->
+	<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -22,11 +15,23 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+	<!-- jquery CDN -->
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+  	<!-- font for picturebox -->
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Raleway:400,800)">
+
+    <link rel="stylesheet" type="text/css"
+          href="http://fonts.googleapis.com/css?family=Share:400,700)">
+          
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 	<!-- 	fontswesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
-	<!-- jquery CDN -->
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <div class="row">
@@ -41,7 +46,7 @@
 	    </ul>
 	    <ul class="nav navbar-nav navbar-right">
 	    	<% if signed_in? %>
-	    		<li><%= link_to "Post Activity", new_post_path%></li>
+	    		<li id="myBtn"><%= link_to "Post Activity", new_post_path%></li>
 
 	    		<li id="navbar-hide"><%= link_to "Check Activities", posts_path%></li>
 	    		<li id="navbar-hide"><%= link_to 'My Profile', user_path(current_user)%></li>
