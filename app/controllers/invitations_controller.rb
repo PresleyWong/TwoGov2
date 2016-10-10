@@ -1,4 +1,5 @@
 class InvitationsController < ApplicationController
+	# include UsersHelper
 	def index
 	end
 
@@ -12,15 +13,16 @@ class InvitationsController < ApplicationController
     	@invitation.user_id = current_user.id
     	@invitation.status = 0 
     	@invitation.invitee_id = @post.user.id
-
+    	
     	if @invitation.save
+    		@poster = User.find(@post.user.id)
+    		@guest = current_user
+    		RequestMailer.request_email(@poster, @guest, @post).deliver_later
     		redirect_to posts_path
     	else
     		flash[:alert] = "Error creating request"
     		render "/posts/index"
     	end
-
-
 	end
 
 	def show

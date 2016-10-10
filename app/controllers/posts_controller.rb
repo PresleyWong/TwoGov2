@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 	before_action :set_post, only: [:show, :edit, :update, :destroy]
 	respond_to :html, :js
 
+	include UsersHelper
+
 	def new
 		@post = Post.new
 	end
@@ -20,16 +22,18 @@ class PostsController < ApplicationController
 	def create
       @post = current_user.posts.build(post_params)
 
-	  if @post.save
+	  if is_current_user_has_complete_profile && @post.save
 	  	flash[:notice] = "Post is created successfully."
 	    redirect_to @post
 	  else
 	  	flash[:alert] = "Error creating post."
+	    flash[:alert] << " Missing gender or date of birth detail in user profile" if is_current_user_has_complete_profile == false
+
 	    render 'new'
 	  end
 	end
 
-	def update
+	def update 
 	  if @post.update(post_params)
 	  	flash[:notice] = "Post is updated successfully."     
 	    redirect_to @post
