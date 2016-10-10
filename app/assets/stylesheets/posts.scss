@@ -2,18 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
  
-.posts-page.col-md-4
-	.filter-box { 
+.posts-page.col-md-4.filter-box { 
 	height: 500px;
 	width: 30%;
 	float:left;
 	border-color:black; 
 	border-width:4px;
 	border-style: solid;
-		overflow: scroll;
-		.form-control {
-	    width:170%;
-		}
+	overflow: scroll;
+	.form-control {
+	    width: 100%;
+	}
 	.box_label {
 	text-align:left;
 	}

@@ -1,47 +1,38 @@
 <!-- showing current user's invitation to others and from others -->
-<h1>Current Invitation from/to users</h1>
-
-<body>
-
 
 
 <ul class="side-navbar">
-	<li><h3>User Profile</h3></li>
+  <li class="active"><%= link_to "User profile", user_path(current_user.id) %></li>
   <li><%= link_to "Your Listing", post_listing_path %></li>
   <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
   <li><%= link_to "Request", invitations_path %></li>
-
 </ul>
 
-</body>
-
-<div class="container">
-	<h1>Your invitations:</h1>
+<div class="row">
+  <div class="profile-container">
+	<h1>Current Invitation from/to users</h1>
 		 <table class="table table-bordered">
 			<tr>
+				<th>Invitee</th>
 				<th>Activity</th>
 				<th>Description</th>
 				<th>Location</th>
-				<th>Language</th>
-				<th>Duration</th>
-				<th>Invitee</th>
 				<th>Status</th>
 			</tr>
 
-			<% @posts.each do |listing| %>
-				<tr>
-
-					<td><%= listing.activity_type %></td>
-					<td><%= listing.description[0..80] + "..." %></td>
-					<td><%= listing.address %></td>
-					<td><%= listing.language_type%></td>
-					<td><%= listing.duration_type %></td>
-				</tr>
-			<% end %>
 			<% @invitations.each do |invitation| %>
 				<tr>
-					<td><%= invitation.invitee_id %></td>
-					<td><%= invitation.status %></td>
+					<td><%= invitation.user.last_name + " " + invitation.user.first_name%></td>
+					<td><%= invitation.post.activity_type%></td>
+					<td><%= invitation.post.description[0..80] + "..."%></td>
+					<td><%= invitation.post.address%></td>
+					<td>
+						<%if invitation.status == 1 %>
+							confirmed	
+						<%elsif invitation.status == 0 %>
+							<%= button_to "Click to confirm",%>
+						<%end%>				
+					</td>
 				</tr>
 
 			<% end %>
