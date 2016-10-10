@@ -46,7 +46,8 @@ gem 'geocoder'
 # For Search
 gem 'pg_search'
 
-
+	
+gem 'toastr-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

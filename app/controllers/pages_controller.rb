@@ -12,7 +12,7 @@ class PagesController < ApplicationController
   	end
   		# times
   		# genders
-  		# age
+      # age
   		# persons
 	    search = "#{params[:location]} #{activities} #{languages} #{durations}"
 	    @posts = Post.search_by_columns(search)
