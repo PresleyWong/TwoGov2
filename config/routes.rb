@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   # root to: 'pages#index'
 
   get '/post/listing', :to => "posts#listing"
+  get '/invitation/:id/confirm', :to => "invitations#confirm"
+  get '/invitation/:id/decline', :to => "invitations#decline"
+   get '/users/:id/buddy', :to => "users#buddy"
   #get 'users/:id', to:  "registrations#show" , :as => "user_registrations"
   #**************
   # The priority is based upon order of creation: first created -> highest priority.

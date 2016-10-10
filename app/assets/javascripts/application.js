@@ -16,4 +16,21 @@
 //= require turbolinks
 //= require bootstrap/dropdown
 //= require_tree .
+// $(document).ready(function(){
+//   $('#confirm_form').on('submit', function(event){
+// 	  event.preventDefault();
 
+//     $.ajax({
+//        // url: "/questions/<%=@question.id%>/answers",
+//        url: $('#confirm_form').attr('action'),
+//        method: "POST",
+//        dataType: "JSON",
+//        data: $(this).serialize(),
+//        success: function(response){ 
+//        	 $('#confirm_form').val("");
+//        }
+       	
+//     });
+       
+//   });
+// });
