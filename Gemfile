@@ -27,7 +27,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #For login
 gem 'devise', '3.4.1'
 gem "figaro"
-gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
@@ -36,6 +35,10 @@ gem 'omniauth-google-oauth2'
 gem 'jquery-turbolinks'
 gem 'bootstrap-sass'
 
+
+#For image upload
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem "mini_magick"
 
 #For API
 gem 'geocoder'
@@ -56,6 +59,7 @@ gem 'pg_search'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'foreman'
   gem 'byebug'
 end
 

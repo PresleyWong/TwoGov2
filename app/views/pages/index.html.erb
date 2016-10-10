@@ -78,11 +78,49 @@
               <%end%>
             </div>
           </div>
-        </div> <!-- title container -->
-      </div> <!-- social icon -->
-    </div> <!-- layer -->
-  </div> <!-- video container -->
-</div>  <!-- row -->
+
+          <div class="col-md-6">
+            <span><div class="location form-group">
+            <%= select_tag "location", "<option selected disabled>Where would you like to meet?</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
+<!--                     <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
+                      <option value="" selected disabled>Where would you want to meet?</option>
+                      <option>Ampang</option>
+                      <option>Cheras</option>
+                      <option>Dinner</option>
+                      <option>Gym</option>
+                      <option>Kuala Lumpur</option>
+                      <option>KLCC</option>
+                      <option>Petaling Jaya</option>
+                      <option>Subang Jaya</option>
+                      <option>TTDI</option>
+                    </select> -->
+                  </div>
+            </span>
+          </div>
+          <div align="center" class="socialbtns">
+            <ul>
+              <li><a href="/users/auth/facebook" class="fa fa-lg fa-facebook"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-twitter"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-google-plus"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-github"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-pinterest"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-linkedin"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-instagram"></a></li></br>
+              <li><a href="#" class="fa fa-lg fa-youtube"></a></li></br>
+            </ul></br>
+          </div>  <!-- social btns -->
+        </div>  <!-- row -->
+        <div class="row">
+          <div class="col-md-12">
+            <%= submit_tag "Search!", class: "form-control" %>
+            <%end%>
+          </div>
+        </div>
+      </div> <!-- title container -->
+    </div> <!-- social icon -->
+  </div> <!-- layer -->
+</div> <!-- video container -->
+
 
 <div class="header container-fluid">
   <h1>A platform to find someone who shares the same interests</h1>

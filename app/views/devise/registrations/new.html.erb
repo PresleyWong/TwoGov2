@@ -4,26 +4,32 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :first_name %>
     <%= f.text_field :first_name, placeholder: "First name", class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <%= f.label :last_name %>
     <%= f.text_field :last_name, placeholder: "Last name", class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.text_field :gender, placeholder: "Gender", class: 'form-control' %>
+     <%= f.label :gender %>
+     <%= f.select :gender, [["male", "male"], ["female", "female"]], prompt: 'Select...', class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= f.text_field :date_of_birth, placeholder: "Date of birth", class: 'form-control' %>
+    <%= f.label :date_of_birth %>
+    <%= f.date_select :date_of_birth, {order: [:day, :month, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>    
   </div>
 
   <div class="form-group">
+    <%= f.label :email %>
     <%= f.email_field :email, placeholder: "Email", class: 'form-control' %>
   </div>
 
   <div class="form-group">
+    <%= f.label :password %>
     <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: 'form-control' %>
     <% if @validatable %>
       <span class="help-block"><%= @minimum_password_length %> characters minimum</span>
@@ -31,6 +37,7 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation", class: 'form-control' %>
   </div>
 
