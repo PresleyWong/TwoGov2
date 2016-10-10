@@ -12,9 +12,10 @@
 				height: 400px;
 			}
 		</style>
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
+
+
 	    <script>
-	      function initialize() {
+	      function display_map() {
 	        var mapCanvas = document.getElementById('map');
 	        var mapOptions = {
 	          center: new google.maps.LatLng(<%= @post.latitude %>, <%= @post.longitude %>),
@@ -27,9 +28,10 @@
 	        	position: new google.maps.LatLng(<%= @post.latitude %>, <%= @post.longitude %>),
 	        	title: "Here!"
 	        });
+
 	        marker.setMap(map);
 	      }
-	      google.maps.event.addDomListener(window, 'load', initialize);
+	      google.maps.event.addDomListener(window, 'load', display_map);
 	    </script>
 
 	</div>

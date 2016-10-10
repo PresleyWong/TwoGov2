@@ -11,7 +11,7 @@ class PagesController < ApplicationController
   	end
   		# times
   		# genders
-  		# age
+      # age
   		# persons
 	    search = "#{params[:location]} #{activities} #{languages} #{durations}"
       byebug

@@ -1,6 +1,9 @@
 class InvitationsController < ApplicationController
+	# include UsersHelper
 	def index
-	end
+		@posts = Post.where(user_id: current_user.id)
+		@invitations = Invitation.where("user_id = #{current_user.id} or invitee_id=#{current_user.id}")
+	end 
 
 	def new
 	end
@@ -12,18 +15,68 @@ class InvitationsController < ApplicationController
     	@invitation.user_id = current_user.id
     	@invitation.status = 0 
     	@invitation.invitee_id = @post.user.id
-
+    	
     	if @invitation.save
+    		@poster = User.find(@post.user.id)
+    		@guest = current_user
+    		RequestMailer.request_email(@poster, @guest, @post).deliver_later
+			flash[:success] = "Invitation sent!"
     		redirect_to posts_path
     	else
     		flash[:alert] = "Error creating request"
-    		render "/posts/index"
+    		redirect_to posts_path
     	end
+	end
 
+
+	def confirm #invitation id >:id
+		@invitation = Invitation.find_by(id: params[:id])
+		if  @invitation.status == 0
+
+			@invitation.status = 1
+
+		    if @invitation.save
+		       #return @invitation.status.to_json
+		       redirect_to invitations_path
+		    else
+		       flash[:alert] = "Error confirm request"
+		       redirect_to invitations_path 
+	    	end
+
+	   	elsif @invitation.status == 1
+	  		flash[:alert] = "You have confirmed!"
+	  		redirect_to invitations_path
+	  	end
+	end
+
+
+	def decline #invitation id >:id
+		@invitation = Invitation.find_by(id: params[:id])
+		if  @invitation.status == 0
+
+			@invitation.status = -1
+
+		    if @invitation.save
+		       #return @invitation.status.to_json
+		       flash[:success] = "Cancelled request"
+		       redirect_to invitations_path
+		    else
+		       flash[:alert] = "Error"
+		       redirect_to invitations_path 
+	    	end
+
+	   	elsif @invitation.status == -1
+	  		flash[:alert] = "You have declined!"
+	  		redirect_to invitations_path
+	  	end
 
 	end
 
+	def buddy
+	end
+	
 	def show
+
 	end
 
 	def destroy

@@ -49,16 +49,20 @@ ul.side-navbar {
   background-color: darken(SALMON, 5%);
 }
 //
-
+.profile-container {
+  margin-left: 200px;
+  text-align: left;
+}
 .profile-container h1  {
   font-family: 'Raleway', Arial, sans-serif;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 
 .edit_user {
     text-align: left;
-    margin-left: 330px;
+    margin-left: 0px;
     input{
         width:220px;
         margin-bottom: 20px;

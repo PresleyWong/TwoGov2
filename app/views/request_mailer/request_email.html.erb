@@ -1,0 +1,11 @@
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='COntent_Type' />
+	</head>
+
+	<body>
+		<h1> Congratulations! You have received a request from <%= @guest.first_name%> </h1>
+		
+		<p><%= link_to 'Click here to the requested post', post_url(@post) %></p>
+	</body>
+</html>
