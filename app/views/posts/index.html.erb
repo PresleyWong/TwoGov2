@@ -96,17 +96,18 @@
 								Speaks <%= post.language_type%></br>
 								<%= post.user.last_name + " " + post.user.first_name%></br>
 							</div>
-							<div class="button-row">								
-								<button id="myBtn">Request</button>
-								<!-- The Modal -->
-								<div id="myModal" class="modal">
-								  <!-- Modal content -->
-								  <div class="modal-content">
-								    <span class="close">x</span>
-								    <p>Are you sure?</p>
-								    <%= button_to "Confirm", invitations_path(post_id: post.id)%>
-								  </div>
-								</div>
+							<div class="button-row">		
+                <%= button_to "Request", invitations_path(post_id: post.id)%>					
+								<!-- <button id="myBtn",  >Request</button> -->
+								  <!-- The Modal -->
+  								<!-- <div id="myModal" class="modal">
+  								  <!- - Modal content -->
+  								  <!-- <div class="modal-content">
+  								    <span class="close">x</span>
+  								    <p>Are you sure?</p>
+  								    < %= button_to "Confirm", invitations_path(post_id: post.id)%>
+  								  </div>
+  								</div> --> 
 							</div> <!-- button-row -->
 						</div> <!--  card col-md-3 -->
           <%end%>
@@ -117,7 +118,7 @@
 </div> <!-- container --> -->
 
 
-
+<!-- 
 <script type="text/javascript">	
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -145,4 +146,4 @@ window.onclick = function(event) {
     }
 }
 
-</script>
+</script> -->

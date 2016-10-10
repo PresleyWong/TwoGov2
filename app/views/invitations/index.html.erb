@@ -6,37 +6,35 @@
   <li><%= link_to "Your Listing", post_listing_path %></li>
   <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
   <li><%= link_to "Request", invitations_path %></li>
+  <li><a href="/users/<%=current_user.id%>/buddy">Buddy List</a></li>
 </ul>
 
 <div class="row">
   <div class="profile-container">
-	<h1>Current Invitation from/to users</h1>
+	<h1>Buddy requests around the world</h1>
 		 <table class="table table-bordered">
 			<tr>
-				<th>Invitee</th>
-				<th>Activity</th>
+				<th>Buddy Requests from</th>
 				<th>Description</th>
 				<th>Location</th>
 				<th>Status</th>
 			</tr>
-
 			<% @invitations.each do |invitation| %>
+			<%next if invitation.status == -1%>
 				<tr>
-					<td><%= invitation.user.last_name + " " + invitation.user.first_name%></td>
-					<td><%= invitation.post.activity_type%></td>
-					<td><%= invitation.post.description[0..80] + "..."%></td>
+					<td><%=link_to invitation.user.last_name + " " + invitation.user.first_name, user_path(invitation.user)%></td>
+					<td><%=link_to invitation.post.description[0..80] + "...", post_path(invitation.post.id)%></td>
 					<td><%= invitation.post.address%></td>
 					<td>
-						<%if invitation.status == 1 %>
-							confirmed	
-						<%elsif invitation.status == 0 %>
-							<%= button_to "Click to confirm",%>
-						<%end%>				
+							<%if invitation.status == 1 %>
+								confirmed	
+							<%elsif invitation.status == 0 %>
+								<a id="confirm_btn" href="/invitation/<%= invitation.id %>/confirm", method: :get ><button>Confirm</button></a>
+								<a id="decline_btn" href="/invitation/<%= invitation.id %>/decline", method: :get ><button>Decline</button></a>
+							<%end%>				
 					</td>
 				</tr>
-
 			<% end %>
-
 		</table>
-
+	</div>
 </div>
