@@ -14,7 +14,6 @@ class PagesController < ApplicationController
       # age
   		# persons
 	    search = "#{params[:location]} #{activities} #{languages} #{durations}"
-      byebug
       if search == "   "
        @posts = Post.all
       else
