@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
 	def search
-  	# place in postings controller?s
   	if !params[:activity].nil?
   		activities = params[:activity].values.join(" ")
   	end
@@ -15,8 +14,13 @@ class PagesController < ApplicationController
   		# age
   		# persons
 	    search = "#{params[:location]} #{activities} #{languages} #{durations}"
-	    @posts = Post.search_by_columns(search)
-	    # @posts.users.where(gender:params[:gender], age:params[:age])
+      byebug
+      if search == "   "
+       @posts = Post.all
+      else
+	     @posts = Post.search_by_columns(search)
+	    end
+      # @posts.users.where(gender:params[:gender], age:params[:age])
 	    @activities_bar = Activity.all
 	  	render "posts/index"
 	end
