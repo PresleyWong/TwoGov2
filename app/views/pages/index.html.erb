@@ -1,84 +1,173 @@
-<div class="video_container">
-  <video autoplay loop="loop" preload="auto" class="photo">
-    <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Ground-Zero.mp4" type='video/mp4'>
-    <!-- <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed.webm" type='video/webm'> -->
-  </video>
-  <div class="layer">
-      <div class="title-container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1><span>LOOKING FOR A BUDDY</span></h1>
+<div class="row">
+  <div class="video_container">
+    <video autoplay loop="loop" preload="auto" class="photo">
+      <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Ground-Zero.mp4" type='video/mp4'>
+      <!-- <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed.webm" type='video/webm'> -->
+    </video>
+    <div class="layer">
+        <div class="title-container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1><span>LOOKING FOR A BUDDY</span></h1>
+            </div>
           </div>
-        </div>
-        <%= form_tag("/search", method:"get") do %>
-        <div class="row">
-          <div class="col-md-6">
-            <span><div class="activities form-group">
-            <%= select_tag "activity", "<option selected disabled>Please select an activity</option><option>Coding</option><option>Carpool</option><option>Dinner</option><option>Gym</option><option>Hangout</option><option>Hiking</option><option>Lunch</option><option>Shopping</option><option>Travel</option><option>Swimming</option>".html_safe, class:"form-control" %>
-<!--                 <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
-                  <option value="" selected disabled>Please select activities</option>
-                  <option>Coding</option>
-                  <option>Carpool</option>
-                  <option>Dinner</option>
-                  <option>Gym</option>
-                  <option>Hangout</option>
-                  <option>Hiking</option>
-                  <option>Lunch</option>
-                  <option>Shopping</option>
-                  <option>Travel</option>
-                  <option>Swimming</option>
-                </select> -->
-              </div>
-            </span>
+          <%= form_tag("/search", method:"get") do %>
+          <div class="row">
+            <div class="col-md-6">
+              <span><div class="activities form-group">
+              <%= select_tag "activity", "<option selected disabled>Please select an activity</option><option>Baking</option><option>Coding</option><option>Dinner</option><option>Gym</option><option>Hangout</option><option>Hiking</option><option>Lunch</option><option>Photography</option><option>Shopping</option><option>Travel</option><option>Swimming</option>".html_safe, class:"form-control" %>
+  <!--                 <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
+                    <option value="" selected disabled>Please select activities</option>
+                    <option>Coding</option>
+                    <option>Carpool</option>
+                    <option>Dinner</option>
+                    <option>Gym</option>
+                    <option>Hangout</option>
+                    <option>Hiking</option>
+                    <option>Lunch</option>
+                    <option>Shopping</option>
+                    <option>Travel</option>
+                    <option>Swimming</option>
+                  </select> -->
+                </div>
+              </span>
+            </div>
+            <div class="col-md-6">
+              <span><div class="location form-group">
+              <%= select_tag "location", "<option selected disabled>Where would you like to meet?</option>
+              <option>Ampang</option>
+              <option>Cheras</option>
+              <option>Sri Petaling</option>
+              <option></option>
+              <option>Kuala Lumpur</option>
+              <option>KLCC</option>
+              <option>Petaling Jaya</option>
+              <option>Subang Jaya</option>
+              <option>TTDI</option>".html_safe, class:"form-control" %>
+  <!--                     <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
+                        <option value="" selected disabled>Where would you want to meet?</option>
+                        <option>Ampang</option>
+                        <option>Cheras</option>
+                        <option>Dinner</option>
+                        <option>Gym</option>
+                        <option>Kuala Lumpur</option>
+                        <option>KLCC</option>
+                        <option>Petaling Jaya</option>
+                        <option>Subang Jaya</option>
+                        <option>TTDI</option>
+                      </select> -->
+                    </div>
+              </span>
+            </div>
+            <div align="center" class="socialbtns">
+              <ul>
+                <li><a href="#" class="fa fa-lg fa-facebook"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-twitter"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-google-plus"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-github"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-pinterest"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-linkedin"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-instagram"></a></li></br>
+                <li><a href="#" class="fa fa-lg fa-youtube"></a></li></br>
+              </ul></br>
+            </div>  <!-- social btns -->
+          </div>  <!-- row -->
+          <div class="row">
+            <div class="col-md-12">
+              <%= submit_tag "Search!", class: "form-control", id:"submit-search-btn" %>
+              <%end%>
+            </div>
           </div>
-          <div class="col-md-6">
-            <span><div class="location form-group">
-            <%= select_tag "location", "<option selected disabled>Where would you like to meet?</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
-<!--                     <select class="form-control" id="sel1" style="width:100%; margin:auto;overflow:hidden;">
-                      <option value="" selected disabled>Where would you want to meet?</option>
-                      <option>Ampang</option>
-                      <option>Cheras</option>
-                      <option>Dinner</option>
-                      <option>Gym</option>
-                      <option>Kuala Lumpur</option>
-                      <option>KLCC</option>
-                      <option>Petaling Jaya</option>
-                      <option>Subang Jaya</option>
-                      <option>TTDI</option>
-                    </select> -->
-                  </div>
-            </span>
-          </div>
-          <div align="center" class="socialbtns">
-            <ul>
-              <li><a href="#" class="fa fa-lg fa-facebook"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-twitter"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-google-plus"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-github"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-pinterest"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-linkedin"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-instagram"></a></li></br>
-              <li><a href="#" class="fa fa-lg fa-youtube"></a></li></br>
-            </ul></br>
-          </div>  <!-- social btns -->
-        </div>  <!-- row -->
-        <div class="row">
-          <div class="col-md-12">
-            <%= submit_tag "Search!", class: "form-control" %>
-            <%end%>
-          </div>
-        </div>
-      </div> <!-- title container -->
-    </div> <!-- social icon -->
-  </div> <!-- layer -->
-</div> <!-- video container -->
-
+        </div> <!-- title container -->
+      </div> <!-- social icon -->
+    </div> <!-- layer -->
+  </div> <!-- video container -->
+</div>  <!-- row -->
 
 <div class="header container-fluid">
-  <h1>a platform for people to find a hobby partner</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
+  <h1>A platform to find someone who shares the same interests</h1>
+  <p>just because two is better than one</p>
 </div>
 
+<div class="progressbar container">
+  <div class="stepwizard">
+    <div class="stepwizard-row">
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-primary btn-circle" disabled="disabled">1</button>
+        <p>Select activity</p>
+      </div>
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-primary btn-circle" disabled="disabled">2</button>
+        <p>Search buddy</p>
+      </div>
+      <div class="stepwizard-step">
+        <button type="button" class="btn btn-primary btn-circle" disabled="disabled">3</button>
+        <p>Send request</p>
+      </div> 
+    </div>
+  </div>
+</div>
 
+<div class="row" id="activity-row">
+  <div class="activities-title-container">
+    <h3>Find your activities nearby</h3>
+  </div>
+  <div class="activity-whole-container">
+    <div class="activities-box-container">
+      <div class="activity-box">
+      <a href="#">
+        <img src="http://hikeontario.com/wp-content/uploads/2014/11/17_Hiking.jpg" alt="Fjords" width="300" height="200">
+      </a>
+        <div class="desc"><h4>Hiking</h4></div>
+      </div>
 
+      <div class="activity-box blue">
+      <a href="#">
+        <img src="https://s8.guruin.com/db/photos/756864/url/D_0905.jpg" alt="Fjords" width="300" height="200">
+      </a>
+        <div class="desc"><h4>Baking</h4></div>
+      </div>
 
+      <div class="activity-box red">
+      <a href="#">
+        <img src="https://img.grouponcdn.com/deal/sdbUoNyTHQSurXAUSgnm/FQ-2047x1228/v1/c700x420.jpg" alt="Fjords" width="300" height="200">
+      </a>
+        <div class="desc"><h4>Photography</h4></div>
+      </div>
+
+      <div class="activity-box yellow">
+      <a href="#">
+        <img src="https://i1.read01.com/image.php?url=0ChznK08" width="300" height="200">
+      </a>
+        <div class="desc"><h4>Workout</h4></div>
+      </div>
+      
+      <div class="activity-box">
+      <a href="#">
+        <img src="http://gravitasmag.com/wp-content/uploads/2014/04/Fotolia_50005652_Subscription_Monthly_M.jpg" alt="Fjords" width="300" height="200">
+      </a>
+        <div class="desc"><h4>Travel</h4></div>
+      </div>
+
+      <div class="activity-box">
+      <a href="#">
+        <img src="http://cdn3.craftsy.com/blog/wp-content/uploads/2014/06/Untitled-lea-sketch-002.jpg" alt="Fjords" width="300" height="200">
+      </a>
+        <div class="desc"><h4>Drawing</h4></div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="latest-post-row">
+  <h1>Latest posts nearby</h1>
+</div>
+
+<footer>
+  <div class="companydetails-container">
+    <ul>
+      <li>Contact us</li>
+      <li>FAQ</li>
+    </ul>
+    <p>Copyright 2016. All Rights Reserved.</p>
+  </div>
+</footer>
