@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
 
-  
+ 
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -40,5 +40,6 @@ class User < ActiveRecord::Base
       end
     end
   end
+
 
 end
