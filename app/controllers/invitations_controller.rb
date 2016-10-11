@@ -2,7 +2,9 @@ class InvitationsController < ApplicationController
 	# include UsersHelper
 	def index
 		@posts = Post.where(user_id: current_user.id)
-		@invitations = Invitation.where("user_id = #{current_user.id} or invitee_id=#{current_user.id}")
+		@invitations_to_you = Invitation.where(invitee_id: current_user.id)
+		@invitations_from_you = Invitation.where(user_id: current_user.id)
+		#@invitations = Invitation.where("user_id = #{current_user.id} or invitee_id=#{current_user.id}")
 	end 
 
 	def new
