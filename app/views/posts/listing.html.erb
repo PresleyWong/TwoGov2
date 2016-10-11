@@ -13,15 +13,13 @@
 				<th>Activity</th>
 				<th>Description</th>
 				<th>Location</th>
-				<th>Language</th>
 			</tr>
 
 			<% @listings.each do |listing| %>
 				<tr>
 					<td><%= listing.activity_type %></td>
-					<td><%= listing.description[0..30] + "..." %></td>
+					<td><%= link_to listing.description[0..30] + "...", post_path(listing.id) %></td>
 					<td><%= listing.address %></td>
-					<td><%= listing.language_type%></td>
 				</tr>
 				<% end %>
 		</table>

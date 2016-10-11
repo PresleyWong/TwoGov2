@@ -102,6 +102,7 @@
                 Speaks <%= post.language_type%>
                 <span id="profile-row-activity">Looking for <%= post.activity_type%></br> buddy</span> 
               </div></br>
+              <a href="/posts/<%=post.id%>"><i></i></a>
   						<div class="button-request">		
                 <%= button_to "Request", invitations_path(post_id: post.id)%>					
   							<!-- <button id="myBtn",  >Request</button> -->

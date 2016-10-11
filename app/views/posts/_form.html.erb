@@ -1,9 +1,21 @@
-<div>
-  Create your activity
-</div>
-
-
 <%= form_for @post, html: {multipart: true} do |f| %>
+
+
+  <div class="form-group">
+    <label>Title</label>
+    <%= f.text_area :title, placeholder: 'Provide a display title, limited to 100 characters', class: 'form-control' %>
+  </div>
+
+  <div class="form-group" id="description-box">
+    <label>Description</label>
+    <%= f.text_area :description, cols: 5, rows: 5, placeholder: 'Describe what would you like to do & share together', class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <label>Location</label>
+    <%= f.text_field :address, placeholder: 'Where would you like to meet?', class: 'form-control', id:'geo-input' %>
+  </div>
 
   <div class="form-group">
     <label>Activity Type</label>
@@ -23,22 +35,6 @@
   <div class="form-group">
     <label>Preferred meetup session</label>
     <%= f.select :duration_type, [["Morning", "Morning"], ["Afternoon", "Afternoon"], ["Night", "Night"]], id: 'duration_type', prompt: 'Select...', class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <label>Title</label>
-    <%= f.text_field :title, placeholder: 'Provide a display title, limited to 100 characters', class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <label>Description</label>
-    <%= f.text_field :description, placeholder: 'Describe what would you like to do & share together', class: 'form-control' %>
-  </div>
-
-
-  <div class="form-group">
-    <label>Location</label>
-    <%= f.text_field :address, placeholder: 'Where would you like to meet?', class: 'form-control', id:'geo-input' %>
   </div>
 
   <div class="actions">

@@ -12,8 +12,10 @@ class PostsController < ApplicationController
 	def edit
 	end
 
-	def show   
+	def show
+
 	end
+
 	def index
 		@posts = Post.all
 		@activities_bar = Activity.all
