@@ -1,6 +1,6 @@
 .main-profile{
   background-size: cover;
-  background-color: #ECFCBE;
+  //background-color: #F5FEE6;
   height: 100vh;
 }
 
@@ -8,8 +8,8 @@
   width: 100%;
   height: 50px;
   line-height: 50px;
-
-  background-color: Blue;
+  text-align: left;
+  background-color: #55B6A0;
   color: White;
   padding: 5px 20px;
   vertical-align: middle;
@@ -21,6 +21,15 @@
     font-size: 1.5em;
     font-weight: 700;
   }
+}
+
+#dashboard-current-user{
+  text-align: right;
+  right: 0;
+  margin: 0;
+  float: right;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 ul.side-navbar {

@@ -1,29 +1,33 @@
-<div class="dashboard"><span>Dashboard</span></div>
-<ul class="side-navbar">
-  <li class="active"><%= link_to "User profile", user_path(current_user.id) %></li>
-  <li><%= link_to "Your Posts", post_listing_path %></li>
-  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-  <li><%= link_to "Request", invitations_path %></li>
-  <li><a href="/users/<%=current_user.id%>/buddy">Buddy List</a></li>
-</ul>
+<div class="dashboard"><span>Dashboard</span>
+  <span id ="dashboard-current-user"><%= current_user.last_name + " " + current_user.first_name%>
+    </span></div>
+<div class="main-profile">
+  <ul class="side-navbar">
+    <li class="active"><%= link_to "User profile", user_path(current_user.id) %></li>
+    <li><%= link_to "Your Posts", post_listing_path %></li>
+    <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+    <li><%= link_to "Request", invitations_path %></li>
+    <li><a href="/users/<%=current_user.id%>/buddy">Buddy List</a></li>
+  </ul>
 
-<div class="row">
-  <div class="profile-container">
-  	<div>
-  	<%if @user == current_user %>
-  		<h1>Welcome, <%=current_user.last_name + " " + current_user.first_name%></h1>
-  	<%end%>
+  <div class="row">
+    <div class="profile-container">
+    	<div>
+    	<%if @user == current_user %>
+    		<h1>Welcome, <%=current_user.last_name + " " + current_user.first_name%></h1>
+    	<%end%>
+    	</div>
+  		<div>
+  			<% if @user.avatar.url.present? %>
+  				<%= image_tag(@user.avatar.thumb.url) %>
+  			<% end %>
+  		</div>
+
+  		<p>Name: <%= @user.last_name + " " + @user.first_name%></p>
+  		<p>Gender: <%= @user.gender%></p>
+  		<p>Date of Birth: <%= @user.date_of_birth%></p>
+  		<p>Email: <%= @user.email%></p>
   	</div>
-		<div>
-			<% if @user.avatar.url.present? %>
-				<%= image_tag(@user.avatar.thumb.url) %>
-			<% end %>
-		</div>
-
-		<p>Name: <%= @user.last_name + " " + @user.first_name%></p>
-		<p>Gender: <%= @user.gender%></p>
-		<p>Date of Birth: <%= @user.date_of_birth%></p>
-		<p>Email: <%= @user.email%></p>
-	</div>
+  </div>
 </div>
 

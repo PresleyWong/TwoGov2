@@ -1,3 +1,7 @@
+<div class="dashboard"><span>Dashboard</span>
+	<span id ="dashboard-current-user"><%= current_user.last_name + " " + current_user.first_name%>
+  	</span>
+</div>
 <div class="main-profile">
 	<ul class="side-navbar">
 	  <li class="active"><%= link_to "User profile", user_path(current_user.id) %></li>
