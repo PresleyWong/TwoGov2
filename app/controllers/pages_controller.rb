@@ -1,10 +1,7 @@
 class PagesController < ApplicationController
 	def search
-  		# times
-  		# genders
       # age
   		# persons
-	    # search = "#{params[:location]} #{params[:activity]} #{params[:language]} #{params[:time]}"
       @posts = Post.all
         if !params[:location].nil?
 	       @posts = Post.search_by_location(params[:location])
@@ -24,7 +21,16 @@ class PagesController < ApplicationController
           times = params[:time].join(" ")
           @posts = @posts.search_any_times(times)
         end
-      # @posts.users.where(gender:params[:gender], age:params[:age])
+        if !params[:gender].nil?
+          users = []
+          @posts.each do |post|
+            if !users.include?post.user_id
+              users << post.user_id
+            end
+          end
+          gender_users = User.where(id: users, gender: params[:gender].downcase).ids
+          @posts = @posts.where(user_id:gender_users)
+        end
 	    @activities_bar = Activity.all
 	  	render "posts/index"
 	end
