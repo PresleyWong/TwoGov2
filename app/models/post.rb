@@ -10,6 +10,8 @@ class Post < ActiveRecord::Base
 
 
     validates :activity_type, :language_type, :description, :address, presence: true
-
-	pg_search_scope :search_by_columns, :against => [:activity_type, :address, :language_type, :duration_type]
+    pg_search_scope :search_by_activities, :against => [:activity_type]
+    pg_search_scope :search_by_languages, :against => [:language_type]
+    pg_search_scope :search_by_durations, :against => [:duration_type]
+	pg_search_scope :search_by_address, :against => [ :address]
 end
