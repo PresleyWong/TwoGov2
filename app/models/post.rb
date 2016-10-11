@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
 	include PgSearch 
 	belongs_to :user
-
 	has_many :invitations,    :dependent => :destroy
 	
 	geocoded_by :address
@@ -27,4 +26,8 @@ class Post < ActiveRecord::Base
                   :using => {
                     :tsearch => {:any_word => true}
                   }
+
+  validates_presence_of :address, :description, :title, :activity_type, :language_type, :gender
+  validates :title, length: { maximum: 70 }
+
 end

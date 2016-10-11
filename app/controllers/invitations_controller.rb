@@ -18,16 +18,21 @@ class InvitationsController < ApplicationController
     	@invitation.status = 0 
     	@invitation.invitee_id = @post.user.id
     	
-    	if @invitation.save
-    		@poster = User.find(@post.user.id)
-    		@guest = current_user
-    		RequestMailer.request_email(@poster, @guest, @post).deliver_later
-			flash[:success] = "Invitation sent!"
-    		redirect_to posts_path
-    	else
+    	if current_user.id == @post.id
     		flash[:alert] = "Error creating request"
     		redirect_to posts_path
-    	end
+    	else
+	    	if @invitation.save
+	    		@poster = User.find(@post.user.id)
+	    		@guest = current_user
+	    		RequestMailer.request_email(@poster, @guest, @post).deliver_later
+				flash[:success] = "Invitation sent!"
+	    		redirect_to posts_path
+	    	else
+	    		flash[:alert] = "Error creating request"
+	    		redirect_to posts_path
+	    	end
+	    end
 	end
 
 
@@ -90,4 +95,5 @@ class InvitationsController < ApplicationController
 		params.require(:invitation).permit(:status, :user_id, :invitee_id, :post_id)
 
 	end
+
 end
