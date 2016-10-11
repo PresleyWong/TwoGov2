@@ -1,105 +1,111 @@
-<div class="container">
-	<div class="row">
-    <div class="posts-page col-md-4 filter-box">
-			<h3>Filtering:</h3></br>
-			<%= form_tag("/search", method:"get") do %>
-      	<div class="row">
-      		<div class="col-md-3">
-          Location:
-          </div>
-        	<div class="location form-group col-md-9">
-          	<%= select_tag "location", "<option selected disabled>Location</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
-          </div> 
-        </div> <!-- row -->
-        <div class="row" style="display: flex, align-items: center;">
-          <% @activities_bar.each do |activity|%>
-            <div class="acitivities form-group">
-            	<div class="col-md-12">
-            		<span>
-            			<div class="box_label">
-               		<%= check_box_tag "activity" + "[" + activity.name + "]", activity.name %>
-                	<%= label_tag "activity" + "[" + activity.name + "]", activity.name %>
-                	</div>
-              	</span>
-              </div>	 <!-- col-md-12 -->
-          	</div> <!-- acitivities form-group -->
-          <% end %>
-        </div> <!-- row -->
-        <div class="row">
-        	<div class="col-md-6">
-        		Age:<%= number_field_tag 'age', nil, min: 1, max: 100%>
-        	</div>
-          <div class="col-md-6">
-            Gender: <%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe %>
-          </div>
-        </div>    
-        <div class="row">
-        	Language:
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-md-6">
-      	   		<%= check_box_tag "language[english]", "english" %>
-      	    	<%= label_tag "language_english", "English" %></br>
-      	   		<%= check_box_tag "language[malay]", "malay" %>
-      	    	<%= label_tag "language_malay", "Malay" %>
+<div class="page-index-background">
+  <div class="page-index container">
+  	<div class="row">
+      <div class="posts-page col-md-4 filter-box">
+  			<h3>Filtering:</h3></br>
+  			<%= form_tag("/search", method:"get") do %>
+        	<div class="row">
+        		<div class="col-md-3">
+            Location:
             </div>
+          	<div class="location form-group col-md-9">
+            	<%= select_tag "location", "<option selected disabled>Location</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
+            </div> 
+          </div> <!-- row -->
+          <div class="row" style="display: flex, align-items: center;">
+            <% @activities_bar.each do |activity|%>
+              <div class="acitivities form-group">
+              	<div class="col-md-12">
+              		<span>
+              			<div class="box_label">
+                 		<%= check_box_tag "activity" + "[" + activity.name + "]", activity.name %>
+                  	<%= label_tag "activity" + "[" + activity.name + "]", activity.name %>
+                  	</div>
+                	</span>
+                </div>	 <!-- col-md-12 -->
+            	</div> <!-- acitivities form-group -->
+            <% end %>
+          </div> <!-- row -->
+          <div class="row">
           	<div class="col-md-6">
-          		<%= check_box_tag "language[mandarin]", "mandarin" %>
-      	    	<%= label_tag "language_mandarin", "Mandarin" %></br>
-      	   		<%= check_box_tag "language[tamil]", "tamil" %>
-      	    	<%= label_tag "language_tamil", "Tamil" %>
+          		Age:<%= number_field_tag 'age', nil, min: 1, max: 100%>
           	</div>
+            <div class="col-md-6">
+              Gender: <%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe %>
+            </div>
+          </div>    
+          <div class="row">
+          	Language:
           </div>
-        </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6">
+        	   		<%= check_box_tag "language[english]", "english" %>
+        	    	<%= label_tag "language_english", "English" %></br>
+        	   		<%= check_box_tag "language[malay]", "malay" %>
+        	    	<%= label_tag "language_malay", "Malay" %>
+              </div>
+            	<div class="col-md-6">
+            		<%= check_box_tag "language[mandarin]", "mandarin" %>
+        	    	<%= label_tag "language_mandarin", "Mandarin" %></br>
+        	   		<%= check_box_tag "language[tamil]", "tamil" %>
+        	    	<%= label_tag "language_tamil", "Tamil" %>
+            	</div>
+            </div>
+          </div>
 
-        <div class="row">
-          Time Of Day:
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-md-6">
-              <%= check_box_tag "duration[morning]", "morning" %>
-              <%= label_tag "duration_morning", "Morning" %></br>
-              <%= check_box_tag "duration[afternoon]", "afternoon" %>
-              <%= label_tag "duration_afternoon", "Afternoon" %>
-            </div>
-            <div class="col-md-6">
-              <%= check_box_tag "duration[evening]", "evening" %>
-              <%= label_tag "duration_evening", "Evening" %></br>
-              <%= check_box_tag "duration[night]", "night" %>
-              <%= label_tag "duration_night", "Night" %>
+          <div class="row">
+            Time Of Day:
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <%= check_box_tag "duration[morning]", "morning" %>
+                <%= label_tag "duration_morning", "Morning" %></br>
+                <%= check_box_tag "duration[afternoon]", "afternoon" %>
+                <%= label_tag "duration_afternoon", "Afternoon" %>
+              </div>
+              <div class="col-md-6">
+                <%= check_box_tag "duration[evening]", "evening" %>
+                <%= label_tag "duration_evening", "Evening" %></br>
+                <%= check_box_tag "duration[night]", "night" %>
+                <%= label_tag "duration_night", "Night" %>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-        	<div class="col-md-6"><%= button_to "Reset", posts_path %></div>
-          <div class="col-md-6">
-            <%= submit_tag "Search!", class: "form-control" %>
+          <div class="row">
+          	<div class="col-md-6"><%= button_to "Reset", posts_path %></div>
+            <div class="col-md-6">
+              <%= submit_tag "Search!", class: "form-control" %>
+            </div>
           </div>
-        </div>
-      <%end%>
-    </div>  <!-- posts-page col-md-4 filter-box -->
-  		
-  	<div class="posts-page col-md-8">
-			<div class="container">
-				<div class="row">
-					<% @posts.each do |post|%>
-						<div class="card col-md-3">
-							<div class="photo-row">
-                <%= image_tag(post.user.avatar.thumb.url)%>
-							</div>
-							<div class="description-row">
-								<%= post.description%></br>
-								<%= post.address%></br>
-								<%= post.activity_type%></br>
-								Speaks <%= post.language_type%></br>
-								<%= post.user.last_name + " " + post.user.first_name%></br>
-							</div>
-							<div class="button-row">		
+        <%end%>
+      </div>  <!-- posts-page col-md-4 filter-box -->
+    		
+    	<div class="posts-page col-md-8">
+        <% @posts.each do |post|%>
+        <div class="card-container">
+          <div class="card">
+            <div class="front">
+  						<div class="location-row">
+                <%= post.address[0..17]%></br>
+              </div>
+              <%= post.description%></br>
+  						
+            </div>
+            <div class="back">
+              <div class="photo-row">
+                <%= image_tag (post.user.avatar.thumb.url), class:"profile-thumbnail"%>
+              </div></br>
+              <div class="profile-row">
+                <span id="profile-row-name"><%= post.user.last_name + " " + post.user.first_name%></span>
+                Speaks <%= post.language_type%>
+                <span id="profile-row-activity">Looking for <%= post.activity_type%></br> buddy</span> 
+              </div></br>
+  						<div class="button-request">		
                 <%= button_to "Request", invitations_path(post_id: post.id)%>					
-								<!-- <button id="myBtn",  >Request</button> -->
-								  <!-- The Modal -->
+  							<!-- <button id="myBtn",  >Request</button> -->
+  							  <!-- The Modal -->
   								<!-- <div id="myModal" class="modal">
   								  <!- - Modal content -->
   								  <!-- <div class="modal-content">
@@ -108,14 +114,15 @@
   								    < %= button_to "Confirm", invitations_path(post_id: post.id)%>
   								  </div>
   								</div> --> 
-							</div> <!-- button-row -->
-						</div> <!--  card col-md-3 -->
-          <%end%>
-				</div>  <!-- row -->
-			</div>   <!-- container -->
-    </div>  <!-- posts-page col md-8 -->
-	</div>  <!-- row -->
-</div> <!-- container --> -->
+  						</div> <!-- button-row -->
+            </div>   <!-- back -->
+  				</div> <!--  card -->
+        </div>   <!-- card-container -->
+        <%end%>
+      </div>  <!-- posts-page col md-8 -->
+  	</div>  <!-- row -->
+  </div> <!-- container --> 
+</div> <!-- page index background -->
 
 
 <!-- 
@@ -147,3 +154,4 @@ window.onclick = function(event) {
 }
 
 </script> -->
+

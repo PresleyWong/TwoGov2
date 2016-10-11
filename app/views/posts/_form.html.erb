@@ -25,6 +25,10 @@
     <%= f.select :duration_type, [["Morning", "Morning"], ["Afternoon", "Afternoon"], ["Night", "Night"]], id: 'duration_type', prompt: 'Select...', class: 'form-control' %>
   </div>
 
+  <div class="form-group">
+    <label>Title</label>
+    <%= f.text_field :title, placeholder: 'Provide a display title, limited to 100 characters', class: 'form-control' %>
+  </div>
 
   <div class="form-group">
     <label>Description</label>

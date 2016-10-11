@@ -1,7 +1,11 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- 
+.page-index-background{
+	background-color: #A6F0FA;
+	background-size: cover;
+}
+
 .posts-page.col-md-4.filter-box { 
 	height: 500px;
 	width: 30%;
@@ -19,48 +23,114 @@
 }
 
 .posts-page.col-md-8 {
-	height: 100%;
-
-	border-color:red; 
-	border-width:4px;
-	border-style: solid;
- 	display: flex;
- 	flex-direction: row;
-	justify-content: space-between;
- 	flex-wrap: wrap;
- 	align-items: stretch; 
+		height: 100vh;
+	  width: 70%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  background: #49DDF2;
+	  font-family: Open Sans;
+	  justify-content: space-around;
+	  flex-wrap: wrap;
+	  overflow: auto;
 }
 
-.card.col-md-3 {
-	height: 300px;
-	width: 200px;
-	border-style: solid;
-	border-radius: 25px;
-	margin: 20px;
-
-}
 .photo-row {
-	border-color:red; 
-	border-width:4px;
-	border-style: solid;
-	height: 100px;
+	height: 30%;
 }
 
-.description-row {
-	border-color:red; 
-	border-width:4px;
-	border-style: solid;
-	height: 150px;
+.profile-thumbnail {
+	height: 80px;
+	width:80px;
+	border: 2px solid lightgrey;
+  border-radius: 60px;
 }
 
-.button-row {
-	border-color:red; 
+.button-request input{ 
 	border-width:4px;
 	border-style: solid;
-	height: 50px;
+	top: 0;
+	margin:0;
+	border-radius: 6px;
 }
 
+//card container
 
+.card-container{
+  perspective: 1000px;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+}
+
+.card{
+  position: relative;
+  width: 200px;
+  height: 250px;
+  transition: all 0.6s ease;
+  transform-style: preserve-3d;
+  display: flex;
+}
+
+.front,.back{
+  position: absolute;
+  background: #FFA14A;
+  top: 0;
+  left: 0;
+  bottom:0;
+  width: 200px;
+  height: 250px;
+  border-radius: 5px;
+  color: white;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  backface-visibility: hidden;
+}
+
+.front{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 300px;
+  padding: 10px;
+}
+
+.location-row{
+	width: 100%;
+	top:0;
+	position: absolute;
+	background-color: #FFD2A8;
+	border-radius: 5px 5px 0px 0px;
+	font-size: 14px;
+	color: brown;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.back{
+  //display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-direction: column;
+}
+
+#profile-row-name{
+	color: black;
+}
+
+#profile-row-activity{
+	color: lightgreen;
+}
+
+.card-container:hover .card{
+  transform: rotateY(180deg);
+}
+
+.back{
+  transform: rotateY(180deg);
+}
 
 
 /* The Modal (background) */
@@ -101,3 +171,4 @@
     text-decoration: none;
     cursor: pointer;
 }
+
