@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   resources :users, only: [:show]  #important! place this after devise_for :users!
-
+  resources :reviews, only: [:create, :new]
 
   # conversations
   resources :conversations do

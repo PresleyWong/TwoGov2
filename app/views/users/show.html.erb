@@ -31,3 +31,22 @@
   </div>
 </div>
 
+<div class="review row">
+  <h3>Reviews from buddy</h3>
+  <div class="review-container">  
+    <%Review.all.each do |review|%>
+    <div class="review-user-container">
+      <%= image_tag (review.user.avatar.thumb.url), class:"review-user-profile" %>
+      <%= review.user.last_name + " " + review.user.first_name%>
+    </div>
+    <div class="review-container">
+      <p>
+        <%= review.content%>
+        <%= review.created_at.strftime('%B %Y')%>
+        
+      </p>
+    </div>
+    <%end%>
+  </div>
+</div>
+

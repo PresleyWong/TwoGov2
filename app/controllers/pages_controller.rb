@@ -28,6 +28,7 @@ class PagesController < ApplicationController
           gender_users = User.where(id: users, gender: params[:gender].downcase).ids
           @posts = @posts.where(user_id:gender_users)
         end
+
         confirmed = Invitation.where(status:1)
         post_ids = @posts.ids
         confirmed.each do |invite|
@@ -36,6 +37,7 @@ class PagesController < ApplicationController
           end
         end
         @posts = @posts.where(id:post_ids)
+
 	    @activities_bar = Activity.all
 	  	render "posts/index"
 	end
