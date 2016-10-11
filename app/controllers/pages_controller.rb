@@ -1,23 +1,23 @@
 class PagesController < ApplicationController
 	def search
-  	# place in postings controller?s
-  	if !params[:activity].nil?
-  		activities = params[:activity].values.join(" ")
-  	end
-  	if !params[:language].nil?
-  		languages = params[:language].values.join(" ")
-  	end
-  	if !params[:duration].nil?
-  		durations = params[:duration].values.join(" ")
-  	end
-  		# times
-  		# genders
-      # age
-  		# persons
-	    search = "#{params[:location]} #{activities} #{languages} #{durations}"
-	    @posts = Post.search_by_columns(search)
-	    # @posts.users.where(gender:params[:gender], age:params[:age])
+    start = Time.now
+    # if !params[:activity].nil?
+    #   activities = params[:activity].join(" ")
+    # end
+    # if !params[:language].nil?
+    #   languages = params[:language].join(" ")
+    # end
+    # if !params[:time].nil?
+    #   times = params[:time].join(" ")
+    # end
+    @posts = Post.all
+    params[:activity].each do |activity|
+	   @posts += Post.search_by_activities(activity)
+    end
+      # @posts.users.where(gender:params[:gender], age:params[:age])
 	    @activities_bar = Activity.all
+          end_time = Time.now
+      @time = end_time - start
 	  	render "posts/index"
 	end
 end
