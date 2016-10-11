@@ -19,7 +19,11 @@
 
   <div class="form-group">
     <label>Activity Type</label>
-    <%= f.select :activity_type, [["Travel", "Travel"], ["Food", "Food"], ["Shopping", "Shopping"], ["Hiking", "Hiking"]], id: 'activity_type', prompt: 'Select...', class: 'form-control' %>
+    <% activities_array = [] %>
+    <% @activities_bar.each do |activity|%>
+    <% activities_array << ["#{activity.name}", "#{activity.name}"] %>
+    <% end %>
+    <%= f.select :activity_type, activities_array, id: 'activity_type', prompt: 'Select...', class: 'form-control' %>
   </div>
 
   <div class="form-group">
