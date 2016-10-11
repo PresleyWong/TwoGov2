@@ -36,4 +36,6 @@
 //   });
 // });
 
-
+function myResetForm() {
+    document.getElementById("mySearchForm").reset();
+}
