@@ -2,7 +2,7 @@
   <div class="page-index container">
   	<div class="row">
       <div class="posts-page col-md-4 filter-box">
-  			<h3>Filters:</h3></br>
+  			<h3>////// Filters //////</h3></br>
         <%= form_tag("/search", method:"get") do %>
           <div class="row">
             <div class="col-md-1">
@@ -26,13 +26,13 @@
             </div>
           </div>
           <div class="row">
-            <h3>Activities:</h3>
+            <h5>Activities:</h5>
           </div>
           <div class="row" style="display: flex, align-items: center;">
             <% @activities_bar.each do |activity|%>
                 <div class="col-md-1">
                 </div>
-                <div class="col-md-5">
+                <div class="selection col-md-5">
                   <span>
                     <div class="box_label">
                     <%= check_box_tag "activity[]", activity.name, false, :multiple => true, id: activity.name %>
@@ -43,52 +43,52 @@
             <% end %>
           </div> <!-- row -->    
           <div class="row">
-            <h3>Language:</h3>
+            <h5>>> Language << </h5>
           </div>
           <div class="row box_label">
               <div class="col-md-1">
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "language[]", "english", false, :multiple => true, id:"english" %>
                 <%= label_tag "english", "English" %>
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "language[]", "malay",false, :multiple => true, id:"malay" %>
                 <%= label_tag "malay", "Malay" %>
               </div>
               <div class="col-md-1">
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "language[]", "mandarin", false, :multiple => true, id:"mandarin" %>
                 <%= label_tag "mandarin", "Mandarin" %>
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "language[]", "tamil", false, :multiple => true, id:"tamil"%>
                 <%= label_tag "tamil", "Tamil" %>
               </div>
           </div>
 
           <div class="row">
-            <h3>Time of day:</h3>
+            <h5>Meetup Session:</h5>
           </div>
           <div class="row box_label">
               <div class="col-md-1">
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "time[]", "morning", false, :multiple => true, id:"morning" %>
                 <%= label_tag "morning", "Morning" %>
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "time[]", "afternoon", false, :multiple => true, id:"afternoon" %>
                 <%= label_tag "afternoon", "Afternoon" %>
               </div>
               <div class="col-md-1">
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "time[]", "evening", false, :multiple => true, id:"evening" %>
                 <%= label_tag "evening", "Evening" %>
               </div>
-              <div class="col-md-5">
+              <div class="selection col-md-5">
                 <%= check_box_tag "time[]", "night", false, :multiple => true, id:"night" %>
                 <%= label_tag "night", "Night" %>
               </div>
@@ -98,7 +98,9 @@
               <input type="button" onclick="myFunction()" value="Reset form">
             </div>
             <div class="col-md-6">
-              <%= submit_tag "Search!", class: "form-control" %>
+              <%= button_tag( class: "form-control") do %>
+              <span class="glyphicon glyphicon-filter"></span>Filter
+              <% end %>
             </div>
           </div>
         <%end%>
