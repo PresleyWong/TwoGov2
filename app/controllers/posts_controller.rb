@@ -18,7 +18,15 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all.order('updated_at DESC').includes(:user)
+		@posts = Post.all.includes(:user).order(created_at: :desc)
+	    confirmed = Invitation.where(status:1)
+        post_ids = @posts.ids
+        confirmed.each do |invite|
+          if post_ids.include?invite.post_id
+            post_ids.delete(invite.post_id)
+          end
+        end
+        @posts = @posts.where(id:post_ids)
 		@activities_bar = Activity.all
 		# @confirmed_request = Invitation.where(status: 1)
 		# @posts.each do |post|
