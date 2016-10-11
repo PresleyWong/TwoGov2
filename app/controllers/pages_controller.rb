@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	def search
       # age
   		# persons
-      @posts = Post.all
+      @posts = Post.all.includes(:user)
         if !params[:location].nil?
 	       @posts = Post.search_by_location(params[:location])
         end
