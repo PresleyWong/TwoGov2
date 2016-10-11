@@ -49,6 +49,16 @@
 
 	    		<li id="navbar-hide"><%= link_to "Check Activities", posts_path%></li>
 	    		<li id="navbar-hide"><%= link_to 'My Profile', user_path(current_user)%></li>
+	   
+	    		<li>
+				    <%= link_to mailbox_inbox_path do  %>
+				        <% if unread_messages_count > 0%>
+				        	<span class="label label-danger pull-right"><%=unread_messages_count%></span>
+				        <% end %>
+				        <em class="fa fa-inbox fa-lg"></em>
+				        <span>Inbox</span>
+				    <% end %>
+				</li>
 
 	    		<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
 	    	<%else%>	
