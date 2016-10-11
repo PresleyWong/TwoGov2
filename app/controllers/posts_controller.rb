@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@activities_bar = Activity.all
 	end
 
 	def show
