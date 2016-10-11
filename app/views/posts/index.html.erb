@@ -3,7 +3,7 @@
   	<div class="row">
       <div class="posts-page col-md-4 filter-box">
   			<h3>////// Filters //////</h3></br>
-        <%= form_tag("/search", method:"get") do %>
+        <%= form_tag("/search", method:"get", id:"mySearchForm") do %>
           <div class="row">
             <div class="col-md-1">
             </div>
@@ -95,7 +95,7 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              <input type="button" onclick="myFunction()" value="Reset form">
+              <input type="button" onclick="myResetForm()" value="Reset form" class="form-control">
             </div>
             <div class="col-md-6">
               <%= button_tag( class: "form-control") do %>
