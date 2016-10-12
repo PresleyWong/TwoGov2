@@ -42,7 +42,7 @@ class PostsController < ApplicationController
 	  	flash[:notice] = "Post is created successfully."
 	    redirect_to @post
 	  else
-	  	flash[:alert] = "Error creating post."
+	  	flash[:alert] = "Error creating post. Form is incomplete"
 	    flash[:alert] << " Missing gender or date of birth detail in user profile" if is_current_user_has_complete_profile == false
 
 	    render 'new'

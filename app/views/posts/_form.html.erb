@@ -20,8 +20,10 @@
   <div class="form-group">
     <label>Activity Type</label>
     <% activities_array = [] %>
-    <% @activities_bar.each do |activity|%>
-    <% activities_array << ["#{activity.name}", "#{activity.name}"] %>
+    <% if @activities_bar != nil %>
+      <% @activities_bar.each do |activity|%>
+      <% activities_array << ["#{activity.name}", "#{activity.name}"] %>
+      <% end %>
     <% end %>
     <%= f.select :activity_type, activities_array, id: 'activity_type', prompt: 'Select...', class: 'form-control' %>
   </div>
