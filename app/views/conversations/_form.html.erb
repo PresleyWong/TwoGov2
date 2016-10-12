@@ -1,11 +1,13 @@
+
+
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
       <%= f.label :recipients %>
-      <%= f.select(:recipients, User.all.collect {|p| [ p.email, p.id ] }, {}, { multiple: true , class: "chosen-select form-control" })%>
+      <%= f.text_field :recipients, :value => "#{@recipient_email}", placeholder: "Recipient", class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :subject %>
-      <%= f.text_field :subject, placeholder: "Subject", class: "form-control" %>
+      <%= f.text_field :subject, :value => "#{@post_title}", placeholder: "Subject", class: "form-control" %>
     </div>
     <div class="form-group">
       <%= f.label :message %>

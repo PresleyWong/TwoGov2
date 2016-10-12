@@ -2,10 +2,17 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    if params[:user_id] != nil
+      @recipient_email = User.find(params[:user_id]).email
+    end
+
+    if params[:post_id] != nil
+      @post_title = Post.find(params[:post_id]).title
+    end
   end
 
   def create
-    recipients = User.where(id: conversation_params[:recipients])
+    recipients = User.where(email: conversation_params[:recipients])
     conversation = current_user.send_message(recipients, conversation_params[:body], conversation_params[:subject]).conversation
     flash[:notice] = "Your message was successfully sent!"
     redirect_to conversation_path(conversation)
@@ -38,7 +45,7 @@ class ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.require(:conversation).permit(:subject, :body,recipients:[])
+    params.require(:conversation).permit(:subject, :body, :recipients)
   end
 
   def message_params

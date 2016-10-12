@@ -161,7 +161,7 @@
 }
 
 #profile-row-activity{
-	color: lightgreen;
+	color: rgba(219, 65, 176, 0.96);
 }
 
 .card-container:hover .card{
@@ -221,4 +221,9 @@
     margin-right: 20px;
     margin-left: 20px;
   }
+}
+.page-show.container{
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 30px;
 }
