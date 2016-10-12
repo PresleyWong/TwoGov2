@@ -67,11 +67,18 @@ ul.side-navbar {
   width: 140px;
   height: 35px;
   padding-top: 15px;
+  a:hover{
+    text-decoration: none;
+  }
 }
 
 .side-navbar li:hover {
   background-color: darken(PEACHPUFF, 8%);
-  text-transform: none;
+  text-decoration: none;
+}
+
+.side-navbar a:hover {
+  text-decoration: none;
 }
 
 .side-navbar .active {

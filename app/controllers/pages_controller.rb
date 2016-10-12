@@ -3,20 +3,17 @@ class PagesController < ApplicationController
       # age
   		# persons
       @posts = Post.all.includes(:user).order(created_at: :desc)
-        if !params[:location].nil?
+        if !params[:location] == ""
 	       @posts = Post.search_by_location(params[:location])
         end
-        # byebug
         if !params[:activity].nil?
           activities = params[:activity].join(" ")
           @posts = @posts.search_any_activities(activities)
         end
-        # byebug
         if !params[:language].nil?
           languages = params[:language].join(" ")
           @posts = @posts.search_any_languages(languages)
         end
-        # byebug
         if !params[:time].nil?
           times = params[:time].join(" ")
           @posts = @posts.search_any_times(times)

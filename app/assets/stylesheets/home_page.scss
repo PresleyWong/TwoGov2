@@ -42,7 +42,9 @@ body {
   height: 100vh;
   overflow-y: hidden;
 }
-
+.logo{
+  z-index: 999;
+}
 .video_container h1 span {
   font-size: 50px;
   font-weight: 100;
@@ -67,12 +69,21 @@ body {
 }
 
 .title-container {
-  margin: 10em;
+  margin-left: 10em;
+  margin-right: 10em;
+  margin-top:7em;
+  margin-bottom: 7em;
   border-width: 4px;
   border-style: solid;
   border-color: white;
-  padding: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;  
   min-width: 300px;
+  img{
+    height:100px;
+  }
     @media screen and (max-width: 992px) {
       padding: 20px;
     };
@@ -238,7 +249,7 @@ a, a:hover {
 }
 
 .activity-whole-container{
-  height:600px;
+  height:700px;
   width: 80%;
   margin-left:110px;
   margin-right: 110px;
@@ -299,7 +310,9 @@ div.desc h4{
   .blue 
   .yellow 
 */
-
+.activities.form-group select {
+  letter-spacing: 1px;
+}
 .activity-box * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -603,6 +616,4 @@ footer li{
   letter-spacing: 4px;
   line-height: 25px; 
   float: right;
-
 }
-
