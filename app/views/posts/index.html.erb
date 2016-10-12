@@ -122,9 +122,9 @@
                 <%= image_tag (post.user.avatar.thumb.url), class:"profile-thumbnail"%>
               </div></br>
               <div class="profile-row">
-                <span id="profile-row-name"><%= post.user.last_name + " " + post.user.first_name%></span>
+                <span id="profile-row-name"><%= post.user.last_name + " " + post.user.first_name%></span></br>
                 Speaks <%= post.language_type%>
-                <span id="profile-row-activity">Looking for <%= post.activity_type%></br> buddy</span> 
+                <span id="profile-row-activity">Looking for <%= post.activity_type%> buddy</span> 
               </div></br>
               <a href="/posts/<%=post.id%>"><i></i></a>
   						<div class="button-request">		

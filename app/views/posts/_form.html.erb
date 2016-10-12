@@ -24,12 +24,12 @@
 
   <div class="form-group">
     <label>Preferred Language</label>
-    <%= f.select :language_type, [["English", "English"], ["Malay", "Malay"], ["Mandarin", "Mandarin"], ["Tamil", "Tamil"]], id: 'language_type', prompt: 'Select...', class: 'form-control' %>
+    <%= f.select :language_type, [["Cantonese", "Cantonese"], ["English", "English"], ["Malay", "Malay"], ["Mandarin", "Mandarin"], ["Tamil", "Tamil"], ["Thai", "Thai"], ["Others", "Others"]], id: 'language_type', prompt: 'Select...', class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <label>Preferred Gender</label>
-    <%= f.select :gender, [["Male", "Male"], ["Female", "Female"], ["Any", "Any"]], id: 'gender', prompt: 'Select...', class: 'form-control' %>
+    <%= f.select :gender, [["Male", "Male"], ["Female", "Female"], ["Any", "Any"], ["Better Not To Say", "Better Not To Say"]], id: 'gender', prompt: 'Select...', class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -38,7 +38,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Save", class: "btn btn-primary" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
 

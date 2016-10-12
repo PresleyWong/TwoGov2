@@ -18,7 +18,7 @@
 				<%if request.status == 1 %>
 					<%= request.post.activity_type + " buddy:"%> 
 					<%= image_tag(request.user.avatar.thumb.url)%>
-					<%=request.user.last_name + " " + request.user.first_name%>
+					<%=request.user.last_name + " " + request.user.first_name%></br>
 				<%end%>
 			<%end%>
 		</div>

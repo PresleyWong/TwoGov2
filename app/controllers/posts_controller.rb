@@ -19,6 +19,9 @@ class PostsController < ApplicationController
 	def index
 		@posts = Post.all
 		@activities_bar = Activity.all
+		# @confirmed_request = Invitation.where(status: 1)
+		# @posts.each do |post|
+		# 	post.invitations
 	end
 
 	def create
