@@ -4,10 +4,15 @@
 
 <div>
 	<p>Activity type: <%= @post.activity_type %> </p>
-	<p>Language used: <%= @post.language_type %> </p>
+	<p>Preferred Language: <%= @post.language_type %> </p>
 	<p>Preferred session: <%= @post.duration_type %> </p>
 	<p>Description: <%= @post.description %> </p>
 	<p>Location: <%= @post.address %> </p>
+	<div class="post-show-btn">
+	<span><%= link_to "Message", new_conversation_path, class: "btn btn-success" %></span>
+	<span><%= link_to "View User Profile", user_path(id: @post.user_id), class: "btn btn-warning"%></span>
+	<span><%= button_to "Request", invitations_path(post_id: @post.id), class: "btn btn-danger"%></span>
+	</div>
 </div>
 
 
