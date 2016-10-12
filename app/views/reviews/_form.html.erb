@@ -1,0 +1,15 @@
+<%= form_for @review do |f| %>
+
+  <div class="form-group">
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+
+  <% f.hidden_field: @user.id %>
+
+
+
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
+

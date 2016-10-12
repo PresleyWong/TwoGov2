@@ -1,0 +1,202 @@
+<%= @total %>
+<div class="page-index-background">
+  <div class="page-index container">
+  	<div class="row">
+      <div class="posts-page col-md-4 filter-box">
+  			<h3>----- Filters -----</h3></br>
+        <%= form_tag("/search", method:"get", id:"mySearchForm") do %>
+          <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="location form-group col-md-10">
+
+              <%= text_field_tag :location, params[:location], placeholder: "Location", id:'geo-input' %>
+
+            </div> 
+          </div>
+          <div class="row form-group">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+              <%= select_tag "age", "<option selected disabled>Age Group</option><option>18-24</option><option>25-35</option><option>36-45</option><option>46+</option>".html_safe, class:"form-control" %>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10">
+              <%= select_tag "gender", "<option selected disabled>Gender</option><option>Male</option><option>Female</option>".html_safe, class:"form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <h5>Activities:</h5>
+          </div>
+          <div class="row" style="display: flex, align-items: center;">
+            <% @activities_bar.each do |activity|%>
+                <div class="col-md-1">
+                </div>
+                <div class="selection col-md-5">
+                  <span>
+                    <div class="box_label">
+                    <%= check_box_tag "activity[]", activity.name, false, :multiple => true, id: activity.name %>
+                    <%= label_tag activity.name, activity.name %>
+                    </div>
+                  </span>
+                </div>   <!-- col-md-12 -->
+            <% end %>
+          </div> <!-- row -->    
+          <div class="row">
+            <h5>>> Language << </h5>
+          </div>
+          <div class="row box_label">
+              <div class="col-md-1">
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "english", false, :multiple => true, id:"english" %>
+                <%= label_tag "english", "English" %>
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "malay",false, :multiple => true, id:"malay" %>
+                <%= label_tag "malay", "Malay" %>
+              </div>
+              <div class="col-md-1">
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "mandarin", false, :multiple => true, id:"mandarin" %>
+                <%= label_tag "mandarin", "Mandarin" %>
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "tamil", false, :multiple => true, id:"tamil"%>
+                <%= label_tag "tamil", "Tamil" %>
+              </div>
+          </div>
+
+          <div class="row">
+            <h5>Meetup Session:</h5>
+          </div>
+          <div class="row box_label">
+              <div class="col-md-1">
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "time[]", "morning", false, :multiple => true, id:"morning" %>
+                <%= label_tag "morning", "Morning" %>
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "time[]", "afternoon", false, :multiple => true, id:"afternoon" %>
+                <%= label_tag "afternoon", "Afternoon" %>
+              </div>
+              <div class="col-md-1">
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "time[]", "night", false, :multiple => true, id:"night" %>
+                <%= label_tag "night", "Night" %>
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "time[]", "Anytime", false, :multiple => true, id:"anytime" %>
+                <%= label_tag "anytime", "Anytime" %>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <input type="button" onclick="myResetForm()" value="Reset form" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <%= button_tag( class: "form-control") do %>
+              <span class="glyphicon glyphicon-filter"></span>Filter
+              <% end %>
+            </div>
+          </div>
+        <%end%>
+      </div>  <!-- posts-page col-md-4 filter-box -->
+    		
+    	<div class="posts-page col-md-8">
+        <% @posts.each do |post|%>
+        <div class="card-container">
+          <div class="card">
+            <div class="front">
+  						<div class="location-row">
+                <%= post.address[0..17]%></br>
+              </div>
+              <div class="time-row">
+                Posted: <%= timeago(post.created_at) %></br>
+              </div>
+              <%= post.title%></br>
+  						
+            </div>
+            <div class="back">
+              <div class="photo-row">
+                <%= image_tag (post.user.avatar.thumb.url), class:"profile-thumbnail"%>
+              </div></br>
+              <div class="profile-row">
+                <span id="profile-row-name"><%= post.user.last_name + " " + post.user.first_name%></span></br>
+                Speaks <%= post.language_type%>
+                <span id="profile-row-activity">Looking for <%= post.activity_type%> buddy</span> 
+              </div></br>
+              <a href="/posts/<%=post.id%>"><i></i></a>
+  						<div class="button-request">		
+                <%if current_user.id != post.id%>
+                  <%= button_to "Request", invitations_path(post_id: post.id)%>	
+                <%end%>				
+  							<!-- <button id="myBtn",  >Request</button> -->
+  							  <!-- The Modal -->
+  								<!-- <div id="myModal" class="modal">
+  								  <!- - Modal content -->
+  								  <!-- <div class="modal-content">
+  								    <span class="close">x</span>
+  								    <p>Are you sure?</p>
+  								    < %= button_to "Confirm", invitations_path(post_id: post.id)%>
+  								  </div>
+  								</div> --> 
+  						</div> <!-- button-row -->
+            </div>   <!-- back -->
+  				</div> <!--  card -->
+        </div>   <!-- card-container -->
+        <%end%>
+      </div>  <!-- posts-page col md-8 -->
+  	</div>  <!-- row -->
+  </div> <!-- container --> 
+</div> <!-- page index background -->
+<footer>
+  <div class="companydetails-container">
+    <ul>
+      <li>Contact us</li>
+      <li>FAQ</li>
+    </ul>
+    <p>Copyright 2016. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- 
+<script type="text/javascript">	
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+</script> -->
+
+<script>
+  var input = document.getElementById('geo-input');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+</script> 

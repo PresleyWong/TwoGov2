@@ -30,7 +30,8 @@
 						<td>
 								<%if invitation.status == 1 %>
 									confirmed	
-									<%= link_to "Review", new_review_path%>
+						
+									<%= link_to "Review", new_review_path(user_id: invitation.user.id)%>
 									
 								<%elsif invitation.status == 0 %>
 									<a id="confirm_btn" href="/invitation/<%= invitation.id %>/confirm", method: :get ><button>Confirm</button></a>
