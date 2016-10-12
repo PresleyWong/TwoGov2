@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
          
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
+  has_many :reviews,    :dependent => :destroy, through: :posts
 
   acts_as_messageable
 
