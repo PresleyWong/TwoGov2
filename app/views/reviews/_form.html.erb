@@ -4,8 +4,7 @@
     <%= f.text_area :content, class: 'form-control' %>
   </div>
 
-  <% f.hidden_field: @user.id %>
-
+  <%= f.hidden_field :poster_id, value: @user.id %>
 
 
   <div class="actions">
