@@ -3,7 +3,7 @@ class PagesController < ApplicationController
       # age
   		# persons
       @posts = Post.all.includes(:user).order(created_at: :desc)
-        if !params[:location] == ""
+        if !params[:location] != ""
 	       @posts = Post.search_by_location(params[:location])
         end
         if !params[:activity].nil?
