@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
 	def create
       @review = current_user.reviews.build(review_params)
-      @review.post_id = params[:poster_id]
+      @review.post_id = params[:review][:poster_id]
 
       if @review.save
 	  	flash[:notice] = "Review is created successfully."
