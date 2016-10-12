@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 	def create
       @post = current_user.posts.build(post_params)
 
-	  if is_current_user_has_complete_profile && @post.save
+      if is_current_user_has_complete_profile && @post.save
 	  	flash[:notice] = "Post is created successfully."
 	    redirect_to @post
 	  else
@@ -66,7 +66,7 @@ class PostsController < ApplicationController
 	end
 
 	def post_params
-		params.require(:post).permit(:address, :description, :duration_type, :activity_type, :language_type, :search_tag)
+		params.require(:post).permit(:address, :description, :duration_type, :activity_type, :language_type, :search_tag, :title, :gender)  
 	end
 end
 

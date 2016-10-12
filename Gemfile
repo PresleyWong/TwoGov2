@@ -40,13 +40,15 @@ gem 'bootstrap-sass'
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "mini_magick"
 
-#For API
+#For api
 gem 'geocoder'
 
-# For Search
+#For Search
 gem 'pg_search'
 
-
+#For mailbox
+gem 'chosen-rails'
+gem 'mailboxer'
 
 gem 'sidekiq'	
 gem 'toastr-rails'
@@ -75,3 +77,9 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+	# Heroku
+	# ==================
+	gem 'rails_12factor' # Heroku Gem Supports
+	gem 'puma' # Using puma for
+end

@@ -18,7 +18,15 @@ class User < ActiveRecord::Base
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
 
- 
+  acts_as_messageable
+
+  def mailboxer_name
+    self.name
+  end
+
+  def mailboxer_email(object)
+    self.email
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

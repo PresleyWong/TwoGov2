@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen-jquery
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap/dropdown
