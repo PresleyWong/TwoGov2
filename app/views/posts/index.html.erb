@@ -9,7 +9,9 @@
             <div class="col-md-1">
             </div>
             <div class="location form-group col-md-10">
-              <%= select_tag "location", "<option selected disabled>Location</option><option>Ampang</option><option>Cheras</option><option>Sri Petaling</option><option>Gym</option><option>Kuala Lumpur</option><option>KLCC</option><option>Petaling Jaya</option><option>Subang Jaya</option><option>TTDI</option>".html_safe, class:"form-control" %>
+
+              <%= text_field_tag :location, params[:location], placeholder: "Location", id:'geo-input' %>
+
             </div> 
           </div>
           <div class="row form-group">
@@ -189,3 +191,7 @@ window.onclick = function(event) {
 
 </script> -->
 
+<script>
+  var input = document.getElementById('geo-input');
+  var autocomplete = new google.maps.places.Autocomplete(input);
+</script> 
