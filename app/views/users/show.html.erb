@@ -36,7 +36,10 @@
 <div class="review row">
   <h3>Reviews from buddy</h3>
   
-  <%Review.all.each do |review|%>
+  
+  <% @review = Review.where(post_id: current_user.id) %>
+
+  <%@review.all.each do |review|%>
   <div class="review-container">  
     <div class="row">
       <div class="review-user-container">

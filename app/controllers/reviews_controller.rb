@@ -22,11 +22,9 @@ class ReviewsController < ApplicationController
       @review = current_user.reviews.build(review_params)
       @review.post_id = params[:poster_id]
 
-      byebug
-
       if @review.save
 	  	flash[:notice] = "Review is created successfully."
-	    redirect_to @review
+	    redirect_to invitations_path
 	  else
 	  	flash[:alert] = "Error creating review."
 	    render 'new'
