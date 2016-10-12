@@ -13,11 +13,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable,
          :validatable, :confirmable, :lockable,
          :omniauthable, :omniauth_providers => [:facebook]
-
          
   has_many :posts,		:dependent => :destroy 
   has_many :invitations,    :dependent => :destroy, through: :posts
-  has_many :reviews,    :dependent => :destroy, through: :posts
+  has_many :reviews,    :dependent => :destroy
 
   acts_as_messageable
 
