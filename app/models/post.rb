@@ -2,7 +2,8 @@ class Post < ActiveRecord::Base
 	include PgSearch 
 	belongs_to :user
 	has_many :invitations,    :dependent => :destroy
-	
+	has_many :reviews,    :dependent => :destroy
+
 	geocoded_by :address
   	# If address is updated, geocode will generate a new set of latitude and longitude
   	after_validation :geocode, if: :address_changed?

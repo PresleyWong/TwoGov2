@@ -24,12 +24,14 @@
 				<% @invitations_to_you.each do |invitation| %>
 				<%next if invitation.status == -1%>
 					<tr>
-						<td><%=link_to invitation.user.last_name + " " + invitation.user.first_name, user_path(invitation.user)%></td>
-						<td><%=link_to invitation.post.description[0..80] + "...", post_path(invitation.post.id)%></td>
+						<td><%= link_to invitation.user.last_name + " " + invitation.user.first_name, user_path(invitation.user.id)%></td>
+						<td><%= link_to invitation.post.description[0..80] + "...", post_path(invitation.post.id)%></td>
 						<td><%= invitation.post.address%></td>
 						<td>
 								<%if invitation.status == 1 %>
 									confirmed	
+									<%= link_to "Review", new_review_path%>
+									
 								<%elsif invitation.status == 0 %>
 									<a id="confirm_btn" href="/invitation/<%= invitation.id %>/confirm", method: :get ><button>Confirm</button></a>
 									<a id="decline_btn" href="/invitation/<%= invitation.id %>/decline", method: :get ><button>Decline</button></a>

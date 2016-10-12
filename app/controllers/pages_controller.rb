@@ -31,6 +31,7 @@ class PagesController < ApplicationController
           gender_users = User.where(id: users, gender: params[:gender].downcase).ids
           @posts = @posts.where(user_id:gender_users)
         end
+      @posts.order('created_at DESC')
 	    @activities_bar = Activity.all
 	  	render "posts/index"
 	end

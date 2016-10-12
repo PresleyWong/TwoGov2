@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all.order('updated_at DESC')
+		@posts = Post.all.order('created_at DESC')
 		@activities_bar = Activity.all
 		# @confirmed_request = Invitation.where(status: 1)
 		# @posts.each do |post|

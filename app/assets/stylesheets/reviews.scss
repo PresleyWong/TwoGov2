@@ -1,0 +1,38 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.review.row{
+	text-align: left;
+	margin-left: 200px;
+	margin-right: 100px;
+	h3{
+		font-family: 'Raleway', Arial, sans-serif;
+	}
+}
+.review-container{
+
+	letter-spacing: 1px;
+	line-height: 20px;
+	p{
+		font-size: 12px;
+		text-align: left;
+	}
+}
+
+.review-user-container{
+	float: left;
+	height: 40px;
+	width: 40px;
+	margin-right: 100px;
+}
+.review-container{
+	display: flex;
+	flex-direction: row;
+}
+
+.review-user-profile{
+	height: 80px;
+	width:80px;
+	border: 2px solid lightgrey;
+  	border-radius: 60px;
+}
