@@ -1,4 +1,3 @@
-<%= @total %>
 <div class="page-index-background">
   <div class="page-index container">
   	<div class="row">
@@ -10,7 +9,7 @@
             </div>
             <div class="location form-group col-md-10">
 
-              <%= text_field_tag :location, params[:location], placeholder: "Location", id:'geo-input' %>
+              <%= text_field_tag :location, params[:location], placeholder: "Location", id:'geo-input', class:"form-control" %>
 
             </div> 
           </div>
@@ -69,6 +68,22 @@
                 <%= check_box_tag "language[]", "tamil", false, :multiple => true, id:"tamil"%>
                 <%= label_tag "tamil", "Tamil" %>
               </div>
+              <div class="col-md-1">
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "cantonese", false, :multiple => true, id:"cantonese" %>
+                <%= label_tag "cantonese", "Cantonese" %>
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "thai",false, :multiple => true, id:"thai" %>
+                <%= label_tag "thai", "Thai" %>
+              </div>
+              <div class="col-md-1">
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "language[]", "others", false, :multiple => true, id:"others" %>
+                <%= label_tag "others", "Others" %>
+              </div>
           </div>
 
           <div class="row">
@@ -92,8 +107,8 @@
                 <%= label_tag "night", "Night" %>
               </div>
               <div class="selection col-md-5">
-                <%= check_box_tag "time[]", "Anytime", false, :multiple => true, id:"anytime" %>
-                <%= label_tag "anytime", "Anytime" %>
+                <%= check_box_tag "time[]", "flexible", false, :multiple => true, id:"flexible" %>
+                <%= label_tag "flexible", "Flexible" %>
               </div>
           </div>
           <div class="row">

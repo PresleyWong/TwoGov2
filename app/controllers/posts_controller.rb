@@ -8,9 +8,11 @@ class PostsController < ApplicationController
 
 	def new
 		@post = Post.new
+		@activities_bar = Activity.all
 	end
 
 	def edit
+		@activities_bar = Activity.all
 	end
 
 	def show
