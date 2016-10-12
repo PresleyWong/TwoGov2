@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	def search
       # age
   		# persons
-      @posts = Post.all
+      @posts = Post.all.includes(:user).order(created_at: :desc)
         if !params[:location].nil?
 	       @posts = Post.search_by_location(params[:location])
         end
@@ -31,7 +31,16 @@ class PagesController < ApplicationController
           gender_users = User.where(id: users, gender: params[:gender].downcase).ids
           @posts = @posts.where(user_id:gender_users)
         end
-      @posts.order('created_at DESC')
+
+        confirmed = Invitation.where(status:1)
+        post_ids = @posts.ids
+        confirmed.each do |invite|
+          if post_ids.include?invite.post_id
+            post_ids.delete(invite.post_id)
+          end
+        end
+        @posts = @posts.where(id:post_ids)
+
 	    @activities_bar = Activity.all
 	  	render "posts/index"
 	end
