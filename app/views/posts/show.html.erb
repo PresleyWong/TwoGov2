@@ -1,42 +1,44 @@
-<h1><%= @post.title %></h1>
+<div class="page-index-background">
+  <div class="page-show container">	
+		<h1><%= @post.title %></h1>
+
+		<div>
+			<p>Activity type: <%= @post.activity_type %> </p>
+			<p>Preferred Language: <%= @post.language_type %> </p>
+			<p>Preferred session: <%= @post.duration_type %> </p>
+			<p>Description: <%= @post.description %> </p>
+			<p>Location: <%= @post.address %> </p>
+			<div class="post-show-btn">
+			<span><%= link_to "Message", new_conversation_path, class: "btn btn-success" %></span>
+			<span><%= link_to "View User Profile", user_path(id: @post.user_id), class: "btn btn-warning"%></span>
+			<span><%= button_to "Request", invitations_path(post_id: @post.id), class: "btn btn-danger"%></span>
+			</div>
+		</div>
+
+
+		<div>
+			<% if(current_user.id == @post.user_id) %>
+			<%= link_to 'Edit', edit_post_path(@post) %> |
+			<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %> 
+			<% end %>
+		</div>
 
 
 
-<div>
-	<p>Activity type: <%= @post.activity_type %> </p>
-	<p>Preferred Language: <%= @post.language_type %> </p>
-	<p>Preferred session: <%= @post.duration_type %> </p>
-	<p>Description: <%= @post.description %> </p>
-	<p>Location: <%= @post.address %> </p>
-	<div class="post-show-btn">
-	<span><%= link_to "Message", new_conversation_path, class: "btn btn-success" %></span>
-	<span><%= link_to "View User Profile", user_path(id: @post.user_id), class: "btn btn-warning"%></span>
-	<span><%= button_to "Request", invitations_path(post_id: @post.id), class: "btn btn-danger"%></span>
+	<!-- Google Map -->					
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div id="map"> </div>
+			<style>
+				#map{
+					width: 100%;
+					height: 350px;
+				}
+			</style>
+		</div>
+	</div>
 	</div>
 </div>
-
-
-<div>
-	<% if(current_user.id == @post.user_id) %>
-	<%= link_to 'Edit', edit_post_path(@post) %> |
-	<%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %> 
-	<% end %>
-</div>
-
-
-<!-- Google Map -->					
-<div class="row">
-	<div class="col-md-8 col-md-offset-2">
-		<div id="map"> </div>
-		<style>
-			#map{
-				width: 100%;
-				height: 350px;
-			}
-		</style>
-	</div>
-</div>
-
 
 <script>
 
