@@ -18,6 +18,7 @@
 //= require bootstrap/dropdown
 //= require_tree .
 //= require toastr
+//= require jquery.timeago
 // $(document).ready(function(){
 //   $('#confirm_form').on('submit', function(event){
 // 	  event.preventDefault();
