@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 	respond_to :html, :js
 
 	include UsersHelper
+	include TimeHelper
 
 	def new
 		@post = Post.new
@@ -17,8 +18,11 @@ class PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all
+		@posts = Post.all.order('updated_at DESC')
 		@activities_bar = Activity.all
+		# @confirmed_request = Invitation.where(status: 1)
+		# @posts.each do |post|
+		# 	post.invitations
 	end
 
 	def create

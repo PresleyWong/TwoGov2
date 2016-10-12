@@ -3,7 +3,7 @@
   <div class="page-index container">
   	<div class="row">
       <div class="posts-page col-md-4 filter-box">
-  			<h3>////// Filters //////</h3></br>
+  			<h3>----- Filters -----</h3></br>
         <%= form_tag("/search", method:"get", id:"mySearchForm") do %>
           <div class="row">
             <div class="col-md-1">
@@ -88,12 +88,12 @@
               <div class="col-md-1">
               </div>
               <div class="selection col-md-5">
-                <%= check_box_tag "time[]", "evening", false, :multiple => true, id:"evening" %>
-                <%= label_tag "evening", "Evening" %>
-              </div>
-              <div class="selection col-md-5">
                 <%= check_box_tag "time[]", "night", false, :multiple => true, id:"night" %>
                 <%= label_tag "night", "Night" %>
+              </div>
+              <div class="selection col-md-5">
+                <%= check_box_tag "time[]", "Anytime", false, :multiple => true, id:"anytime" %>
+                <%= label_tag "anytime", "Anytime" %>
               </div>
           </div>
           <div class="row">
@@ -117,6 +117,9 @@
   						<div class="location-row">
                 <%= post.address[0..17]%></br>
               </div>
+              <div class="time-row">
+                Posted: <%= timeago(post.created_at) %></br>
+              </div>
               <%= post.description%></br>
   						
             </div>
@@ -125,13 +128,15 @@
                 <%= image_tag (post.user.avatar.thumb.url), class:"profile-thumbnail"%>
               </div></br>
               <div class="profile-row">
-                <span id="profile-row-name"><%= post.user.last_name + " " + post.user.first_name%></span>
+                <span id="profile-row-name"><%= post.user.last_name + " " + post.user.first_name%></span></br>
                 Speaks <%= post.language_type%>
-                <span id="profile-row-activity">Looking for <%= post.activity_type%></br> buddy</span> 
+                <span id="profile-row-activity">Looking for <%= post.activity_type%> buddy</span> 
               </div></br>
               <a href="/posts/<%=post.id%>"><i></i></a>
   						<div class="button-request">		
-                <%= button_to "Request", invitations_path(post_id: post.id)%>					
+                <%if current_user.id != post.id%>
+                  <%= button_to "Request", invitations_path(post_id: post.id)%>	
+                <%end%>				
   							<!-- <button id="myBtn",  >Request</button> -->
   							  <!-- The Modal -->
   								<!-- <div id="myModal" class="modal">
