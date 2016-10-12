@@ -3,31 +3,52 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .review.row{
 	text-align: left;
+	margin-top: 30px;
 	margin-left: 200px;
 	margin-right: 100px;
+	margin-bottom: 20px;
+	border-style: groove;
+	border-width: 1px 0px 0px 0px;
+	border-color: rgba(211, 211, 211, 0.32);
+	box-shadow: inset 0px 11px 8px -10px rgba(0, 0, 255, 0.28);
 	h3{
 		font-family: 'Raleway', Arial, sans-serif;
 	}
 }
 .review-container{
-
+	margin-top:20px;
 	letter-spacing: 1px;
 	line-height: 20px;
+	text-align: left;
+	border-style: groove;
+	border-width: 1px 0px 0px 0px;
+	border-color: rgba(211, 211, 211, 0.32);
+	box-shadow: inset 0px 11px 8px -10px rgba(0, 0, 255, 0.28);
+
 	p{
 		font-size: 12px;
 		text-align: left;
+		padding-left: 20px;
+		padding-right: 20px;
 	}
 }
 
 .review-user-container{
 	float: left;
 	height: 40px;
-	width: 40px;
+	width: 80px;
 	margin-right: 100px;
+	margin: 20px;
 }
-.review-container{
+.review-content-container{
 	display: flex;
+	margin: 20px;
 	flex-direction: row;
+	margin-bottom: 20px;
+	span{
+		color: darkgrey;
+		font-style: italic;
+	}
 }
 
 .review-user-profile{
