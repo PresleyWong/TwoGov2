@@ -27,26 +27,30 @@
   		<p>Gender: <%= @user.gender%></p>
   		<p>Date of Birth: <%= @user.date_of_birth%></p>
   		<p>Email: <%= @user.email%></p>
+      <p>Member since: <%= @user.created_at.strftime('%B %d, %Y')%></p>
+      <p>Last seen: <%= timeago(@user.last_sign_in_at)%></p>
   	</div>
   </div>
 </div>
 
 <div class="review row">
   <h3>Reviews from buddy</h3>
+  
+  <%Review.all.each do |review|%>
   <div class="review-container">  
-    <%Review.all.each do |review|%>
-    <div class="review-user-container">
-      <%= image_tag (review.user.avatar.thumb.url), class:"review-user-profile" %>
-      <%= review.user.last_name + " " + review.user.first_name%>
+    <div class="row">
+      <div class="review-user-container">
+        <%= image_tag (review.user.avatar.thumb.url), class:"review-user-profile" %>
+        <%= review.user.last_name + " " + review.user.first_name%>
+      </div>
+      <div class="review-content-container">
+        <p>
+          <%= review.content%></br>
+          <span><%= review.created_at.strftime('%B %Y')%> </span>  
+        </p>
+      </div>
     </div>
-    <div class="review-container">
-      <p>
-        <%= review.content%>
-        <%= review.created_at.strftime('%B %Y')%>
-        
-      </p>
-    </div>
-    <%end%>
   </div>
+  <%end%>
 </div>
 
