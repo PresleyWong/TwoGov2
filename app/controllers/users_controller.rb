@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update]
 
 	def show
-		@review = Review.where(post_id: current_user.id)
+		@review = Review.where(post_id: @user.id)
 	end
 
 	def buddy
